@@ -1,0 +1,44 @@
+﻿<Window x:Class="Konvert.StartForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konvert"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Style>
+        <Style/>
+    </Window.Style>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Fon.jpg" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="Здравствуйте Наталья" FontFamily="Times New Roman" FontSize="50" Foreground="#FFF31010" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="48" Margin="0,0,0,0" Grid.Row="1">
+            <Hyperlink FontSize="40" x:Name="HyperAdd" Click="HiperAdd_Click" Language="ru-ru" FontFamily="Times New Roman" FontWeight="Normal" Cursor="Hand" Foreground="#FFEBF50E">Добавить получателя</Hyperlink>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="48" Margin="0,0,0,0" Grid.Row="2">
+            <Hyperlink FontSize="40" x:Name="HyperPrint" Click="HyperPrint_Click" Language="ru-ru" FontFamily="Times New Roman" FontWeight="Normal" Cursor="Hand" Foreground="#FFEBF50E">Распечатать конверт</Hyperlink>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Height="48" Margin="0,0,38,0" Grid.Row="3">
+            <Hyperlink FontSize="40" x:Name="HyperExit" Click="HyperExit_Click" Language="ru-ru" FontFamily="Times New Roman" FontWeight="Normal" Cursor="Hand" Foreground="#FFEBF50E" NavigateUri="HyperExit_Click()">Выход</Hyperlink>
+        </TextBlock>
+        <Button Content="Button" Click="Button_Click" HorizontalAlignment="Left" Height="48" Margin="42,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="93"/>
+    </Grid>
+</Window>

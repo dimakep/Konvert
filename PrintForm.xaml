@@ -1,0 +1,83 @@
+﻿<Window x:Class="Konvert.PrintForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konvert"
+        mc:Ignorable="d"
+        Title="Печать" Height="450" Width="700"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    <Grid Margin="8,8,8,8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+          
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Image x:Name="ImagePrintIco" 
+               HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/printer.png" Grid.RowSpan="2"/>
+        <ComboBox x:Name="PrinterNameBox" 
+                  Style="{StaticResource MaterialDesignFilledComboBox}"
+                  Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto"/>
+        <ComboBox x:Name="FirmBox" 
+                  IsEditable="True"
+                  Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Выберите получателя"
+                  Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto" Grid.Row="1"/>
+        <StackPanel 
+            Grid.Row="2" Grid.Column="1"
+            Margin="4"
+            Orientation="Horizontal" Grid.ColumnSpan="4">
+            <RadioButton x:Name="Small1Tab" Click="Small1Tab_Click"
+                Margin="4"
+                Content="Маленький конверт 1"
+                IsChecked="True"
+                Style="{StaticResource MaterialDesignTabRadioButton}" />
+            <RadioButton x:Name="Small2Tab" Click="Small2Tab_Click"
+                Margin="4"
+                Content="Маленький конверт 2"
+                IsChecked="False"
+                Style="{StaticResource MaterialDesignTabRadioButton}" />
+            <RadioButton x:Name="BigTab" Click="BigTab_Click"
+                Margin="4"
+                Content="Большой конверт"
+                IsChecked="False"
+                Style="{StaticResource MaterialDesignTabRadioButton}" RenderTransformOrigin="0.5,0.5" />
+        </StackPanel>
+        <Image x:Name="ImageKonvert" 
+               HorizontalAlignment="Stretch" Height="Auto" Width="Auto" Source="/Маленький конверт.jpg" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
+        <Button x:Name="BtnPrint" Click="BtnPrint_Click"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                Content="Печать" Grid.Column="1" HorizontalAlignment="Left" Height="32" Grid.Row="7" VerticalAlignment="Center" Width="113" Cursor="Hand"/>
+        <Button x:Name="BtnAdd" Click="BtnAdd_Click" 
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                Content="Добавить получателя" Grid.Column="2" HorizontalAlignment="Left" Height="32" Grid.Row="7" VerticalAlignment="Center" Width="Auto  " Panel.ZIndex="9"/>
+        <Button x:Name="BtnBack" Click="BtnBack_Click" 
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                Content="Назад" Grid.Column="4" HorizontalAlignment="Right" Height="32" Grid.Row="7" VerticalAlignment="Center" Width="113" Cursor="Hand" Margin="0,0,50,0"/>
+
+    </Grid>
+</Window>
