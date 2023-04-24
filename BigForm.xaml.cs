@@ -18,16 +18,16 @@ namespace Konvert
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new();
-            printDialog.PrintQueue = new PrintQueue(new PrintServer(), KonvertBisness.defaultPrinterName);
-            printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
-            printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
+            //printDialog.PrintQueue = new PrintQueue(new PrintServer(), KonvertBisness.defaultPrinterName);
+            //printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
+            //printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
             printDialog.PrintVisual(PrintBox, "Print");
             DialogResult = true;
             
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
-        { DialogResult = false; }
+        { Close(); }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

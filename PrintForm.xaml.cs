@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-using System.Drawing.Printing;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Controls;
 
 namespace Konvert
 {
@@ -59,34 +56,32 @@ namespace Konvert
             Close();
         }
 
+
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
+            
             MessageBox.Show(FirmBox.Text);
             KonvertBisness.firmInv = FirmBox.Text;
             KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
             KonvertBisness.FindInTable();
-
-            // Получение списка доступных принтеров
-            LocalPrintServer printServer = new LocalPrintServer();
-            PrintQueueCollection printQueues = printServer.GetPrintQueues();
-            foreach (PrintQueue printer in printQueues)
+            //MessageBox.Show(KonvertBisness.cityInv);
+            if ((bool)BigTab.IsChecked)
             {
-                if (printer.FullName == PrinterNameBox.Text)
-                {
-                    // Выбор нужного принтера
-                    PrintQueue selectedPrinter = printer;
-                    break;
-                }
-            }
-            BigForm bigForm = new();
-            bigForm.ShowDialog();
-            if (bigForm.DialogResult == false)
-            {
-                StartForm startForm = new();
-                startForm.Show();
-                Close();
-            }
+                BigForm bigForm = new();
+                _ = bigForm.ShowDialog();
 
+            }
+            if ((bool)Small1Tab.IsChecked)
+            {
+                Small1Form small1Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
+                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv);
+                    _ = small1Form.ShowDialog();
+            }
+            if ((bool)Small2Tab.IsChecked)
+            {
+
+            }
             
 
         }
