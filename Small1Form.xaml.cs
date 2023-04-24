@@ -7,10 +7,10 @@ namespace Konvert
     /// <summary>
     /// Логика взаимодействия для BigForm.xaml
     /// </summary>
-    public partial class BigForm : Window
+    public partial class Small1Form : Window
     {
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
-        public BigForm()
+        public Small1Form()
         {
             InitializeComponent();
         }

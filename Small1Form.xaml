@@ -1,0 +1,44 @@
+﻿<Window x:Class="Konvert.Small1Form"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konvert"
+        mc:Ignorable="d"
+        Title="Предварительный просмотр" Height="13.3cm" Width="22cm"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <WrapPanel Height="Auto" Width="Auto">
+        <StackPanel x:Name="PrintBox" Height="11cm" Width="22cm" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBox x:Name="Line1" Text="ООО `ГИПАР`" 
+                     Margin="2.5cm,0.9cm,0,0" Width="6.5cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="Line2" Text="Смоленская обл., г. Вязьма" 
+                     Margin="2.5cm,0,0,0" Width="6.5cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="Line3" Text="ул. Репина д.16 оф.4" 
+                     Margin="1.5cm,0,0,0" Width="8.5cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="Line4" Text="215110" 
+                     Margin="1.5cm,1,0,0" Width="4cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="RecipientBox" Text="Recipient" 
+                     Margin="11cm,2.1cm,0,0" Width="9cm" Height="46" HorizontalAlignment="Left" BorderThickness="0,0,0,0" MaxLines="2" MinLines="2" TextWrapping="WrapWithOverflow"/>
+            <TextBox x:Name="AdressBox1" Text="Street" 
+                     Margin="11cm,0,0,0" Width="9cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="AdressBox2" Text="Home" 
+                     Margin="11cm,0,0,0" Width="10cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="AdressBox3" Text="215110" 
+                     Margin="11cm,0,0,0" Width="10cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+            <TextBox x:Name="IndexBox" Text="215110" 
+                     Margin="11cm,0,0,0" Width="3cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+        </StackPanel>
+        <Button x:Name="BtnPrint" Click="BtnPrint_Click" Height="32" Width="150" Content="Печать" Margin="50,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Button x:Name="BtnBack" Click="BtnBack_Click" Height="32" Width="150" Content="Назад" HorizontalAlignment="Right" Margin="432,5,0,0" VerticalAlignment="Bottom" Cursor="Hand"/>
+    </WrapPanel>
+
+
+</Window>

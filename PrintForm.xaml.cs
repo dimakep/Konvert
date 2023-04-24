@@ -66,6 +66,21 @@ namespace Konvert
             KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
             KonvertBisness.FindInTable();
 
+            if ((bool)BigTab.IsChecked)
+            {
+                BigForm bigForm = new();
+                _ = bigForm.ShowDialog();
+
+            }
+            if ((bool)Small1Tab.IsChecked)
+            {
+                Small1Form small1Form = new();
+                _ = small1Form.ShowDialog();
+            }
+            if ((bool)Small2Tab.IsChecked)
+            {
+
+            }
             // Получение списка доступных принтеров
             LocalPrintServer printServer = new LocalPrintServer();
             PrintQueueCollection printQueues = printServer.GetPrintQueues();
@@ -78,16 +93,6 @@ namespace Konvert
                     break;
                 }
             }
-            BigForm bigForm = new();
-            bigForm.ShowDialog();
-            if (bigForm.DialogResult == false)
-            {
-                StartForm startForm = new();
-                startForm.Show();
-                Close();
-            }
-
-            
 
         }
 
