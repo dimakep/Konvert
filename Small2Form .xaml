@@ -16,7 +16,8 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
     <WrapPanel Height="Auto" Width="Auto">
-        <StackPanel x:Name="PrintBox" Height="11cm" Width="22cm" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel x:Name="PrintBox" Height="11cm" Width="22cm" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Background="#FFF3F3F3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1cm"/>
@@ -30,21 +31,20 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1.1cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="1cm"/>
-                    <RowDefinition Height="1.8cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="1cm"/>
-                    <RowDefinition Height="1.2cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="1.4cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+                    <RowDefinition Height="0.6cm"/>
+
                 </Grid.RowDefinitions>
                 <TextBox x:Name="Line1" Text="ООО `ГИПАР`" 
                          Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" Margin="57,0,0,0" BorderThickness="0,0,0,0"/>
@@ -55,24 +55,23 @@
                 <TextBox x:Name="Line4" Text="215110" 
                      Margin="1.5cm,1,0,0" BorderThickness="0,0,0,0" Grid.Row="4" Grid.Column="1"/>
                 <TextBox x:Name="RecipientBox" 
-                     Margin="0,0,0,0"  BorderThickness="0,0,0,0" MaxLines="2" MinLines="2" TextWrapping="WrapWithOverflow" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Padding="57,0,0,0" Grid.RowSpan="2"/>
-                <TextBox x:Name="StreetBox" 
-                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
-                <TextBox x:Name="HomeBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"/>
-                <TextBox x:Name="FrameBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="4" Padding="0,0,0,0" TextAlignment="Center"/>
-                <TextBox x:Name="StructureBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
-                <TextBox x:Name="FlatBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"/>
-                <TextBox x:Name="CityBox"
-                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3" Padding="0,0,0,0"/>
-                <TextBox x:Name="AreaBox" 
-                     Margin="50,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
-                <TextBox x:Name="RegionBox" 
-                     Margin="62,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
-                <TextBox x:Name="IndexBox" 
+                         Margin="0.8cm,0,0,0" BorderThickness="0,0,0,0" MaxLines="2" MinLines="2" TextWrapping="WrapWithOverflow" 
+                         Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0" Grid.RowSpan="2" VerticalContentAlignment="Top"/>
+                <TextBox x:Name="RegionBox" Text="Region"
+                         Margin="0.8cm,0,0,0" BorderThickness="0,0,0,0" TextWrapping="WrapWithOverflow" 
+                         Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
+                <TextBox x:Name="CityBox" 
+                         Margin="0,0,0,0" BorderThickness="0,0,0,0" TextWrapping="WrapWithOverflow" VerticalContentAlignment="Top"
+                         Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="2" Padding="0,0,0,0"/>
+                <TextBox x:Name="HomeBox" Text="д. "
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="FrameBox" Text="корп. "
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="4" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="StructureBox" Text="стр. "
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="FlatBox" Text="оф. "
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="IndexBox" Text="Index"
                      Margin="30,0,0,0" BorderThickness="0,0,0,0" Grid.Row="13" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" />
             </Grid>
 

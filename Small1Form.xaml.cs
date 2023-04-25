@@ -18,7 +18,7 @@ namespace Konvert
             string home, string frame, string structure, string flat, string printer)
         {
             InitializeComponent();
-            RecipientBox.Text =firm;
+            RecipientBox.Text = firm;
             IndexBox.Text = Convert.ToString(index);
             RegionBox.Text = region;
             AreaBox.Text = area;
@@ -37,7 +37,7 @@ namespace Konvert
             PrintDialog printDialog = new();
             printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
-            printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
+            printDialog.PrintTicket.PageMediaSize = new PageMediaSize(417, 835);
             printDialog.PrintVisual(PrintBox, "Print");
             DialogResult = true;
             

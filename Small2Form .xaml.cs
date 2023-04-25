@@ -20,14 +20,12 @@ namespace Konvert
             InitializeComponent();
             RecipientBox.Text =firm;
             IndexBox.Text = Convert.ToString(index);
-            RegionBox.Text = region;
-            AreaBox.Text = area;
-            CityBox.Text = city;
-            StreetBox.Text = street;
-            HomeBox.Text = home;
-            FrameBox.Text = frame;
-            StructureBox.Text = structure;
-            FlatBox.Text = flat;
+            RegionBox.Text = region + " " + area;
+            CityBox.Text = city + " " + street;
+            HomeBox.Text += home;
+            FrameBox.Text += frame;
+            StructureBox.Text += structure;
+            FlatBox.Text += flat;
             printerName = printer;
 
         }
@@ -37,7 +35,7 @@ namespace Konvert
             PrintDialog printDialog = new();
             printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
-            printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
+            printDialog.PrintTicket.PageMediaSize = new PageMediaSize(417, 835);
             printDialog.PrintVisual(PrintBox, "Print");
             DialogResult = true;
             
