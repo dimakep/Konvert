@@ -17,24 +17,65 @@
         WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
     <WrapPanel Height="Auto" Width="Auto">
         <StackPanel x:Name="PrintBox" Height="11cm" Width="22cm" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1cm"/>
+                    <ColumnDefinition Width="8.5cm"/>
+                    <ColumnDefinition Width="2.3cm"/>
+                    <ColumnDefinition Width="2.8cm"/>
+                    <ColumnDefinition Width="2.6cm"/>
+                    <ColumnDefinition Width="2.4cm"/>
+                    <ColumnDefinition Width="1.5cm"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.1cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="1cm"/>
+                    <RowDefinition Height="1.8cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="1cm"/>
+                    <RowDefinition Height="1.2cm"/>
+                </Grid.RowDefinitions>
             <TextBox x:Name="Line1" Text="ООО `ГИПАР`" 
-                     Margin="2.5cm,0.9cm,0,0" Width="6.5cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
+                         Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" Margin="57,0,0,0" BorderThickness="0,0,0,0"/>
             <TextBox x:Name="Line2" Text="Смоленская обл., г. Вязьма" 
-                     Margin="2.5cm,0,0,0" Width="6.5cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
+                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="2" Grid.Column="1" Padding="0,0,0,0"/>
             <TextBox x:Name="Line3" Text="ул. Репина д.16 оф.4" 
-                     Margin="1.5cm,0,0,0" Width="8.5cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
+                     Margin="1cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="3" Grid.Column="1" Padding="0,0,0,0"/>
             <TextBox x:Name="Line4" Text="215110" 
-                     Margin="1.5cm,1,0,0" Width="4cm" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0,0,0,0"/>
-            <TextBox x:Name="RecipientBox" Text="Recipient" 
-                     Margin="11cm,2.1cm,0,0" Width="9cm" Height="46" HorizontalAlignment="Left" BorderThickness="0,0,0,0" MaxLines="2" MinLines="2" TextWrapping="WrapWithOverflow"/>
-            <TextBox x:Name="AdressBox1" Text="Street" 
-                     Margin="11cm,0,0,0" Width="9cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
-            <TextBox x:Name="AdressBox2" Text="Home" 
-                     Margin="11cm,0,0,0" Width="10cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
-            <TextBox x:Name="AdressBox3" Text="215110" 
-                     Margin="11cm,0,0,0" Width="10cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
-            <TextBox x:Name="IndexBox" Text="215110" 
-                     Margin="11cm,0,0,0" Width="3cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>
+                     Margin="1.5cm,1,0,0" BorderThickness="0,0,0,0" Grid.Row="4" Grid.Column="1"/>
+                <TextBox x:Name="RecipientBox" 
+                     Margin="0,0,0,0"  BorderThickness="0,0,0,0" MaxLines="2" MinLines="2" TextWrapping="WrapWithOverflow" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Padding="57,0,0,0" Grid.RowSpan="2"/>
+                <TextBox x:Name="StreetBox" 
+                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
+                <TextBox x:Name="HomeBox" 
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="FrameBox" 
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="4" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="StructureBox" 
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="FlatBox" 
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"/>
+                <TextBox x:Name="CityBox"
+                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3" Padding="0,0,0,0"/>
+                <TextBox x:Name="AreaBox" 
+                     Margin="50,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
+                <TextBox x:Name="RegionBox" 
+                     Margin="62,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
+                <TextBox x:Name="IndexBox" 
+                     Margin="30,0,0,0" BorderThickness="0,0,0,0" Grid.Row="13" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" />
+            </Grid>
+
         </StackPanel>
         <Button x:Name="BtnPrint" Click="BtnPrint_Click" Height="32" Width="150" Content="Печать" Margin="50,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
         <Button x:Name="BtnBack" Click="BtnBack_Click" Height="32" Width="150" Content="Назад" HorizontalAlignment="Right" Margin="432,5,0,0" VerticalAlignment="Bottom" Cursor="Hand"/>

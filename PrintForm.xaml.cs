@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-using System.Drawing.Printing;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Controls;
 
 namespace Konvert
 {
@@ -59,12 +56,35 @@ namespace Konvert
             Close();
         }
 
+
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
+            
             MessageBox.Show(FirmBox.Text);
             KonvertBisness.firmInv = FirmBox.Text;
             KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
             KonvertBisness.FindInTable();
+<<<<<<< HEAD
+            //MessageBox.Show(KonvertBisness.cityInv);
+            if ((bool)BigTab.IsChecked)
+            {
+                BigForm bigForm = new();
+                _ = bigForm.ShowDialog();
+
+            }
+            if ((bool)Small1Tab.IsChecked)
+            {
+                Small1Form small1Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
+                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                    _ = small1Form.ShowDialog();
+            }
+            if ((bool)Small2Tab.IsChecked)
+            {
+
+            }
+            
+=======
 
             if ((bool)BigTab.IsChecked)
             {
@@ -93,6 +113,7 @@ namespace Konvert
                     break;
                 }
             }
+>>>>>>> 1b7aa40f821d322018fa156dee8350e997a91a15
 
         }
 
