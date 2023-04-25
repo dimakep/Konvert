@@ -126,6 +126,7 @@ namespace Konvert
         /// 
         public void FindInTable()
         {
+
             SqlCommand command = new(sqlRequest, sqlConnection);
             DBOpen(); // Открываем базу данных
             SqlDataReader reader = command.ExecuteReader();
@@ -150,6 +151,7 @@ namespace Konvert
                 MessageBox.Show(idInv.ToString());
                 idInv = 0;
             }
+
             reader.Close();
             DBClose(); // закрываем базу данных
         }
@@ -219,7 +221,6 @@ namespace Konvert
         {
             using (SqlCommand command = sqlConnection.CreateCommand())
             {
-
                 idFromDB.Clear();
                 command.CommandText = "SELECT Id FROM Recipient";
                 DBOpen();
@@ -231,7 +232,6 @@ namespace Konvert
                     }
                 }
                 DBClose();
-                
             }
         }
 
