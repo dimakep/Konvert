@@ -67,8 +67,10 @@ namespace Konvert
             //MessageBox.Show(KonvertBisness.cityInv);
             if ((bool)BigTab.IsChecked)
             {
-                BigForm bigForm = new();
-                _ = bigForm.ShowDialog();
+                BigForm BigForm = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
+                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                _ = BigForm.ShowDialog();
 
             }
             if ((bool)Small1Tab.IsChecked)
@@ -80,7 +82,10 @@ namespace Konvert
             }
             if ((bool)Small2Tab.IsChecked)
             {
-
+                Small2Form small2Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
+                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                _ = small2Form.ShowDialog();
             }
             
 

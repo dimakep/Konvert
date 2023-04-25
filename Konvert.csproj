@@ -72,6 +72,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Small2Form .xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Small1Form.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +105,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Small2Form .xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Small1Form.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

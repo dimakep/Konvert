@@ -10,7 +10,8 @@ namespace Konvert
     public partial class BigForm : Window
     {
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
-        public BigForm()
+        public BigForm(string firm, int index, string region, string area, string city, string street,
+            string home, string frame, string structure, string flat, string printer)
         {
             InitializeComponent();
         }
