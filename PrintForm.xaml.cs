@@ -75,7 +75,7 @@ namespace Konvert
             {
                 Small1Form small1Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
                     KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
-                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv);
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
                     _ = small1Form.ShowDialog();
             }
             if ((bool)Small2Tab.IsChecked)

@@ -12,10 +12,10 @@ namespace Konvert
     public partial class Small1Form : Window
         
     {
-        
+        private string printerName;
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
         public Small1Form(string firm, int index, string region, string area, string city, string street, 
-            string home, string frame, string structure, string flat)
+            string home, string frame, string structure, string flat, string printer)
         {
             InitializeComponent();
             RecipientBox.Text =firm;
@@ -28,12 +28,14 @@ namespace Konvert
             FrameBox.Text = frame;
             StructureBox.Text = structure;
             FlatBox.Text = flat;
+            printerName = printer;
+
         }
        
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new();
-            printDialog.PrintQueue = new PrintQueue(new PrintServer(), KonvertBisness.defaultPrinterName);
+            printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
             printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
             printDialog.PrintVisual(PrintBox, "Print");
