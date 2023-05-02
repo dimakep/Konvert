@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,6 +22,7 @@ namespace Konvert
             CounterDB();
             FirmBox.Focus();
         }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (FirmBox.Text != "")
@@ -59,11 +60,13 @@ namespace Konvert
                 startForm.Show();
             }
         }
+
         private void CounterDB()
         {
             KonvertBisness.DBAddArray();
             TextBoxGrid.Text = positionDB + " / " + KonvertBisness.idFromDB.Count;
         }
+
         private void IndexBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
@@ -74,6 +77,7 @@ namespace Konvert
             KonvertBisness.CoincidenceFind();
             BoxFromDB();
         }
+
         public static bool IsValid(string str)
         {
             int i;
@@ -170,6 +174,8 @@ namespace Konvert
         /// 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
+            StartForm startForm = new();
+            startForm.Show();
             Close();
         }
         /// 
@@ -182,7 +188,11 @@ namespace Konvert
             Close();
         }
         /// 
+
         /// Кнопки перехода по строкам БД с загрузкой данных в TextBox`s
+
+        /// Кнопки перехода по строкам БД
+
         /// 
         private void BtnFFBack_Click(object sender, RoutedEventArgs e)
         {

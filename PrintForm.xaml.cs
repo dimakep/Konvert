@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
+
 
 namespace Konvert
 {
@@ -55,7 +56,6 @@ namespace Konvert
             addForm.Show();
             Close();
         }
-
 
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
