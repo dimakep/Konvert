@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Printing;
+using System;
 
 namespace Konvert
 {
@@ -10,6 +11,7 @@ namespace Konvert
     public partial class BigForm : Window
     {
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
+        string printerName;
 
         public BigForm(string firm, int index, string region, string area, string city, string street,
             string home, string frame, string structure, string flat, string printer)
@@ -29,7 +31,7 @@ namespace Konvert
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new();
-            printDialog.PrintQueue = new PrintQueue(new PrintServer(), KonvertBisness.defaultPrinterName);
+            printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
             printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
             printDialog.PrintVisual(PrintBox, "Print");

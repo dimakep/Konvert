@@ -16,7 +16,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
     <WrapPanel Height="Auto" Width="Auto">
-        <StackPanel x:Name="PrintBox" Height="16.2cm" Width="23cm" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <StackPanel x:Name="PrintBox" Height="16.2cm" Width="23cm" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFECE9E9">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1cm"/>
