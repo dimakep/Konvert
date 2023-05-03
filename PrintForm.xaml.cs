@@ -1,11 +1,10 @@
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
-
 
 namespace Konvert
 {
@@ -57,14 +56,12 @@ namespace Konvert
             Close();
         }
 
+
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
-            
-            MessageBox.Show(FirmBox.Text);
             KonvertBisness.firmInv = FirmBox.Text;
             KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
             KonvertBisness.FindInTable();
-            //MessageBox.Show(KonvertBisness.cityInv);
             if ((bool)BigTab.IsChecked)
             {
                 BigForm BigForm = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,

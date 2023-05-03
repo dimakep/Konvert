@@ -10,8 +10,7 @@ namespace Konvert
     /// </summary>
     public partial class BigForm : Window
     {
-        private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
-        string printerName;
+        public readonly string printerName;
 
         public BigForm(string firm, int index, string region, string area, string city, string street,
             string home, string frame, string structure, string flat, string printer)
@@ -32,19 +31,20 @@ namespace Konvert
         {
             PrintDialog printDialog = new();
             printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
+
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
             printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
+
+            PrintTicket printTicket = printDialog.PrintQueue.UserPrintTicket;
+            double printWidth = printTicket.PageMediaSize.Width.Value;
+            double printHeight = printTicket.PageMediaSize.Height.Value;
+
             printDialog.PrintVisual(PrintBox, "Print");
             DialogResult = true;
-            
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         { Close(); }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

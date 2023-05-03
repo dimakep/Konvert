@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using System.Windows;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Konvert
 {
@@ -12,7 +10,7 @@ namespace Konvert
         public string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;" +
                                         "AttachDbFilename=D:\\Konvert\\Forms\\StartForm\\DB.mdf;" +
                                         "Integrated Security=True;Connect Timeout=30";
-       public readonly SqlConnection sqlConnection = new ("Data Source = (LocalDB)\\MSSQLLocalDB;" +
+       public readonly SqlConnection sqlConnection = new("Data Source = (LocalDB)\\MSSQLLocalDB;" +
                                                          "AttachDbFilename=D:\\Konvert\\Forms\\StartForm\\DB.mdf;" +
                                                          "Integrated Security=True;Connect Timeout=30");/// Connection String
         public string sqlRequest; /// Строка SqlCommand для операций с БД
@@ -126,7 +124,6 @@ namespace Konvert
         /// 
         public void FindInTable()
         {
-
             SqlCommand command = new(sqlRequest, sqlConnection);
             DBOpen(); // Открываем базу данных
             SqlDataReader reader = command.ExecuteReader();
@@ -148,10 +145,8 @@ namespace Konvert
             }
             catch
             {
-                MessageBox.Show(idInv.ToString());
                 idInv = 0;
             }
-
             reader.Close();
             DBClose(); // закрываем базу данных
         }
@@ -221,6 +216,7 @@ namespace Konvert
         {
             using (SqlCommand command = sqlConnection.CreateCommand())
             {
+
                 idFromDB.Clear();
                 command.CommandText = "SELECT Id FROM Recipient";
                 DBOpen();
@@ -232,6 +228,7 @@ namespace Konvert
                     }
                 }
                 DBClose();
+                
             }
         }
 
