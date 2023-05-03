@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
+using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-using System.Drawing.Printing;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Controls;
+
 
 namespace Konvert
 {
@@ -61,20 +59,36 @@ namespace Konvert
 
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
+            
             MessageBox.Show(FirmBox.Text);
             KonvertBisness.firmInv = FirmBox.Text;
-            //KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
+            KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
             KonvertBisness.FindInTable();
-            BigForm bigForm = new BigForm();
-            bigForm.ShowDialog();
-            if(bigForm.DialogResult == false)
+            //MessageBox.Show(KonvertBisness.cityInv);
+            if ((bool)BigTab.IsChecked)
             {
-                StartForm startForm = new();
-                startForm.Show();
-                Close();
+                BigForm BigForm = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
+                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                _ = BigForm.ShowDialog();
+
+            }
+            if ((bool)Small1Tab.IsChecked)
+            {
+                Small1Form small1Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
+                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                    _ = small1Form.ShowDialog();
+            }
+            if ((bool)Small2Tab.IsChecked)
+            {
+                Small2Form small2Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
+                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
+                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                _ = small2Form.ShowDialog();
             }
             
-            
+
         }
 
         private void Small1Tab_Click(object sender, RoutedEventArgs e)

@@ -126,21 +126,32 @@ namespace Konvert
         /// 
         public void FindInTable()
         {
-            SqlCommand command = new("SELECT * FROM Recipient WHERE Firm = '" + idInv + "'", sqlConnection);
+
+            SqlCommand command = new(sqlRequest, sqlConnection);
             DBOpen(); // Открываем базу данных
             SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-            /// Привязка данных к колонкам таблицы
-            firmInv = reader[1].ToString();
-            indexInv = Convert.ToInt32(reader[2]);
-            regionInv = reader[3].ToString();
-            areaInv = reader[4].ToString();
-            cityInv = reader[5].ToString();
-            streetInv = reader[6].ToString();
-            homeInv = reader[7].ToString();
-            frameInv = reader[8].ToString();
-            structureInv = reader[9].ToString();
-            flatInv = reader[10].ToString();
+            try
+            {
+                reader.Read();
+                /// Привязка данных к колонкам таблицы
+                idInv = Convert.ToInt32(reader[0]);
+                firmInv = reader[1].ToString();
+                indexInv = Convert.ToInt32(reader[2]);
+                regionInv = reader[3].ToString();
+                areaInv = reader[4].ToString();
+                cityInv = reader[5].ToString();
+                streetInv = reader[6].ToString();
+                homeInv = reader[7].ToString();
+                frameInv = reader[8].ToString();
+                structureInv = reader[9].ToString();
+                flatInv = reader[10].ToString();
+            }
+            catch
+            {
+                MessageBox.Show(idInv.ToString());
+                idInv = 0;
+            }
+
             reader.Close();
             DBClose(); // закрываем базу данных
         }

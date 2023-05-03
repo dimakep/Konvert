@@ -47,6 +47,7 @@
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+    <PackageReference Include="System.Management" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,8 +70,13 @@
     <Resource Include="Resources\Маленький конверт.jpg" />
     <Resource Include="Маленький конверт.jpg" />
   </ItemGroup>
-
   <ItemGroup>
+    <Compile Update="Small2Form .xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Small1Form.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -97,4 +103,14 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Small2Form .xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Small1Form.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>

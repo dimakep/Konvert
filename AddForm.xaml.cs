@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,23 +22,54 @@ namespace Konvert
             CounterDB();
             FirmBox.Focus();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (FirmBox.Text != "")
+            {
+                KonvertBisness.DBAddArray();
+                MessageBox1 messageBox1 = new("ВНИМАНИЕ!", "Сохранить изменения?");
+                messageBox1.ShowDialog();
+                if (messageBox1.DialogResult == true)
+                {
+                    KonvertBisness.firmInv = FirmBox.Text;
+                    KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
+                    KonvertBisness.FindInTable();
+                    if (KonvertBisness.idInv == 0)
+                    {
+                        DBFromBox();
+                        KonvertBisness.AddInTable();
+                    }
+                    else
+                    {
+                        DBFromBox();
+                        KonvertBisness.UpdateInTable();
+                    }
+                    e.Cancel = false;
+                }
+                if (messageBox1.DialogResult == false)
+                {
+                    e.Cancel = false;
+                    StartForm startForm = new StartForm();
+                    startForm.Show();
+                }
+            }
+            else
+            {
+                StartForm startForm = new();
+                startForm.Show();
+            }
+        }
+
         private void CounterDB()
         {
             KonvertBisness.DBAddArray();
             TextBoxGrid.Text = positionDB + " / " + KonvertBisness.idFromDB.Count;
         }
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-        
-        }
+
         private void IndexBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
-        }
-        public static bool IsValid(string str)
-        {
-            int i;
-            return int.TryParse(str, out i) && i >= 1 && i <= 999999;
         }
         private void IndexBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -46,7 +77,12 @@ namespace Konvert
             KonvertBisness.CoincidenceFind();
             BoxFromDB();
         }
- 
+
+        public static bool IsValid(string str)
+        {
+            int i;
+            return int.TryParse(str, out i) && i >= 1 && i <= 999999;
+        }
         public void ClearBox() ///Очистка TextBox
         {
             FirmBox.Text = "";
@@ -152,7 +188,11 @@ namespace Konvert
             Close();
         }
         /// 
+
+        /// Кнопки перехода по строкам БД с загрузкой данных в TextBox`s
+
         /// Кнопки перехода по строкам БД
+
         /// 
         private void BtnFFBack_Click(object sender, RoutedEventArgs e)
         {
@@ -161,6 +201,7 @@ namespace Konvert
                 positionDB = 1;
                 KonvertBisness.idInv = KonvertBisness.idFromDB[positionDB - 1];
                 CounterDB();
+                KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + KonvertBisness.idInv + "'";
                 KonvertBisness.FindInTable();
                 BoxFromDB();
             }
@@ -180,6 +221,7 @@ namespace Konvert
                     KonvertBisness.idInv = KonvertBisness.idFromDB[positionDB - 1];
                 }
                 CounterDB();
+                KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + KonvertBisness.idInv + "'";
                 KonvertBisness.FindInTable();
                 BoxFromDB();
             }
@@ -196,6 +238,7 @@ namespace Konvert
                 KonvertBisness.idInv = KonvertBisness.idFromDB[positionDB - 1];
             }
             CounterDB();
+            KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + KonvertBisness.idInv + "'";
             KonvertBisness.FindInTable();
             ClearBox();
             BoxFromDB();
@@ -205,6 +248,7 @@ namespace Konvert
             positionDB = KonvertBisness.idFromDB.Count;
             CounterDB();
             KonvertBisness.idInv = KonvertBisness.idFromDB[positionDB - 1];
+            KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + KonvertBisness.idInv + "'";
             KonvertBisness.FindInTable();
             BoxFromDB();
         }
