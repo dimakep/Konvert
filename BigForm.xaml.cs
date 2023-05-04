@@ -31,14 +31,12 @@ namespace Konvert
         {
             PrintDialog printDialog = new();
             printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
-
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
-            printDialog.PrintTicket.PageMediaSize = new PageMediaSize(612, 869);
-
-            PrintTicket printTicket = printDialog.PrintQueue.UserPrintTicket;
-            double printWidth = printTicket.PageMediaSize.Width.Value;
-            double printHeight = printTicket.PageMediaSize.Height.Value;
-
+            Size pageSize = new Size(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
+            PrintBox.Measure(pageSize);
+            PrintBox.Arrange(new Rect(0, (pageSize.Height - PrintBox.DesiredSize.Height) / 2,
+                                        PrintBox.DesiredSize.Width,
+                                        PrintBox.DesiredSize.Height));
             printDialog.PrintVisual(PrintBox, "Print");
             DialogResult = true;
         }

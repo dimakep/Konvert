@@ -35,10 +35,13 @@ namespace Konvert
             PrintDialog printDialog = new();
             printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
-            printDialog.PrintTicket.PageMediaSize = new PageMediaSize(417, 835);
+            Size pageSize = new(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
+            PrintBox.Measure(pageSize);
+            PrintBox.Arrange(new Rect(0, (pageSize.Height - PrintBox.DesiredSize.Height) / 2,
+                                        PrintBox.DesiredSize.Width,
+                                        PrintBox.DesiredSize.Height));
             printDialog.PrintVisual(PrintBox, "Print");
             DialogResult = true;
-            
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
