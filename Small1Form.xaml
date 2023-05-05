@@ -16,12 +16,12 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
     <WrapPanel Height="Auto" Width="Auto">
-        <StackPanel x:Name="PrintBox" Height="11cm" Width="22cm" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFECE9E9">
+        <StackPanel x:Name="PrintBox" Height="11cm" Width="22cm" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1cm"/>
                     <ColumnDefinition Width="8.5cm"/>
-                    <ColumnDefinition Width="2.3cm"/>
+                    <ColumnDefinition Width="1cm"/>
                     <ColumnDefinition Width="2.8cm"/>
                     <ColumnDefinition Width="2.6cm"/>
                     <ColumnDefinition Width="2.4cm"/>
@@ -30,50 +30,50 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1.1cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="1cm"/>
-                    <RowDefinition Height="1.8cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
-                    <RowDefinition Height="0.4cm"/>
+                    <RowDefinition Height="0.5cm"/>
+                    <RowDefinition Height="0.5cm"/>
+                    <RowDefinition Height="0.5cm"/>
                     <RowDefinition Height="1cm"/>
                     <RowDefinition Height="1.2cm"/>
+                    <RowDefinition Height="0.5cm"/>
+                    <RowDefinition Height="0.5cm"/>
+                    <RowDefinition Height="0.5cm"/>
+                    <RowDefinition Height="0.5cm"/>
+                    <RowDefinition Height="0.55cm"/>
+                    <RowDefinition Height="0.55cm"/>
+                    <RowDefinition Height="0.55cm"/>
+                    <RowDefinition Height="0.55cm"/>
+                    <RowDefinition Height="1cm"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="Line1" Text="ООО `ГИПАР`" 
+                <TextBox x:Name="Line1" Text="ООО ``ГИПАР``" 
                          Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" Margin="57,0,0,0" BorderThickness="0,0,0,0"/>
                 <TextBox x:Name="Line2" Text="Смоленская обл., г. Вязьма" 
                      Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="2" Grid.Column="1" Padding="0,0,0,0"/>
                 <TextBox x:Name="Line3" Text="ул. Репина д.16 оф.4" 
                      Margin="1cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="3" Grid.Column="1" Padding="0,0,0,0"/>
                 <TextBox x:Name="Line4" Text="215110" 
-                     Margin="1.5cm,1,0,0" BorderThickness="0,0,0,0" Grid.Row="4" Grid.Column="1"/>
+                     Margin="21,1,0,0" BorderThickness="0,0,0,0" Grid.Row="4" Grid.Column="1"/>
                 <TextBox x:Name="RecipientBox" 
                      Margin="0,0,0,0"  BorderThickness="0,0,0,0" MaxLines="2" MinLines="2" TextWrapping="WrapWithOverflow" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Padding="57,0,0,0" Grid.RowSpan="2"/>
                 <TextBox x:Name="StreetBox" 
                      Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
                 <TextBox x:Name="HomeBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"/>
+                     Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="FrameBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="4" Padding="0,0,0,0" TextAlignment="Center"/>
+                     Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="4" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="StructureBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
+                     Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="FlatBox" 
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"/>
+                     Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="CityBox"
-                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3" Padding="0,0,0,0"/>
+                     Margin="10,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Padding="0,0,0,0"/>
                 <TextBox x:Name="AreaBox" 
-                     Margin="50,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
+                     Margin="50,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
                 <TextBox x:Name="RegionBox" 
-                     Margin="62,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
+                     Margin="85,0,0,0" BorderThickness="0,0,0,0" Grid.Row="13" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
                 <TextBox x:Name="IndexBox" 
-                     Margin="30,0,0,0" BorderThickness="0,0,0,0" Grid.Row="13" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" />
+                     Margin="30,0,0,0" BorderThickness="0,0,0,0" Grid.Row="14" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" />
             </Grid>
 
         </StackPanel>
