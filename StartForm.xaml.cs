@@ -25,37 +25,21 @@ namespace Konvert
         {
             InitializeComponent();
         }
-
         private void HyperExit_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
- 
         private void HiperAdd_Click(object sender, RoutedEventArgs e)
         {
             AddForm addForm = new();
             addForm.Show();
             Close();
         }
-
         private void HyperPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintForm printForm = new();
             printForm.Show();
             Close();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            KonvertBisness.DBAddArray();
-            MessageBox1 messageBox1 = new("Error", "information");
-            messageBox1.ShowDialog();
-            if(messageBox1.DialogResult == true)
-            {
-                MessageBox.Show("yes");
-            }
-            if (messageBox1.DialogResult == false)
-            { MessageBox.Show("no"); }
         }
     }
 }

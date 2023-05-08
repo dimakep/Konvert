@@ -19,18 +19,15 @@ namespace Konvert
         {
             InitializeComponent();
             ImagePrintIco.Source = new BitmapImage(new Uri("D:\\Konvert\\Forms\\StartForm\\printer.png"));
-            //PaperSize bigKonvert = new("Большой конверт", 902, 638);
-            //PaperSize smallKonvert = new("Маленький конверт", 950, 412);
-
-
+            
             string query = "SELECT Id, Firm FROM Recipient";
             using (SqlConnection connection = new(KonvertBisness.connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet, "Recipient");
-
+                SqlCommand command = new(query, connection);
+                SqlDataAdapter adapter = new(command);
+                DataSet dataSet = new();
+                _ = adapter.Fill(dataSet, "Recipient");
+            
                 // Создаем объект CollectionViewSource для привязки ComboBox к данным
                 CollectionViewSource viewSource = new CollectionViewSource();
                 viewSource.Source = dataSet.Tables["Recipient"].DefaultView;
@@ -40,6 +37,7 @@ namespace Konvert
                 FirmBox.DisplayMemberPath = "Firm";
                 FirmBox.SelectedValuePath = "Id";
             }
+            
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -60,7 +58,7 @@ namespace Konvert
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             KonvertBisness.firmInv = FirmBox.Text;
-            KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + KonvertBisness.firmInv + "'";
+            KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = N'" + KonvertBisness.firmInv + "'";
             KonvertBisness.FindInTable();
             if ((bool)BigTab.IsChecked)
             {
@@ -75,7 +73,7 @@ namespace Konvert
                 Small1Form small1Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
                     KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
                     KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
-                    _ = small1Form.ShowDialog();
+                _ = small1Form.ShowDialog();
             }
             if ((bool)Small2Tab.IsChecked)
             {
@@ -84,7 +82,6 @@ namespace Konvert
                     KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
                 _ = small2Form.ShowDialog();
             }
-            
 
         }
 
