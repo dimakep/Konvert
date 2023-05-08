@@ -1,0 +1,53 @@
+﻿<Window x:Class="Konvert.MessageBox2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konvert"
+        mc:Ignorable="d"
+        Title="MessageBox" Height="200" Width="300"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{x:Null}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        >
+    <Grid>
+        <Border Width="auto" Height="auto" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1"
+                CornerRadius="10,10,10,10">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientBrush.GradientStops>
+                        <GradientStopCollection>
+                            <GradientStop Color="#e7ebf7" Offset="0.0"></GradientStop>
+                            <GradientStop Color="#cee3ff" Offset="0.5"></GradientStop>
+                        </GradientStopCollection>
+                    </GradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Button Content="Ок" x:Name="BtnYes" Click="BtnYes_Click"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="60" Grid.Row="3"  HorizontalAlignment="Center"/>
+                <Label x:Name="CaptionLabel" Content="Caption" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" 
+                       Style="{StaticResource MaterialDesignLabel}" FontSize="18" FontWeight="Bold"/>
+                <Label x:Name="MessageLabel" Content="Caption" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" 
+                       Style="{StaticResource MaterialDesignLabel}" FontSize="18"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

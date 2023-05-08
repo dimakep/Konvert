@@ -71,6 +71,9 @@
     <Resource Include="Маленький конверт.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MessageBox2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Small2Form .xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -104,6 +107,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="MessageBox2.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Small2Form .xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

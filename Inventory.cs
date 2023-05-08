@@ -111,13 +111,14 @@ namespace Konvert
                 try
                 {
                     DBOpen();
-                    command.ExecuteNonQuery();
+                    _ = command.ExecuteNonQuery();
                     DBClose();
                 }
-                catch (SqlException ex)
+                catch
                 {
-                    Exception error = new("К сожалению, это сейчас не возможно!\nПопрубуйте позже.", ex);
-                    throw error;
+                    MessageBox2 messageBox2 = new("Ошибка", "К сожалению, это сейчас не возможно!\nПопрубуйте позже");
+                    _ = messageBox2.ShowDialog();
+                    
                 }
             }
 

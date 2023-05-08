@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Printing;
-using System.Windows.Input;
 using System;
 
 namespace Konvert
@@ -10,7 +9,6 @@ namespace Konvert
     /// Логика взаимодействия для BigForm.xaml
     /// </summary>
     public partial class Small1Form : Window
-        
     {
         private string printerName;
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
@@ -37,7 +35,7 @@ namespace Konvert
             printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
             printDialog.PrintTicket.PageResolution = new PageResolution(96, 96);
-            Size pageSize = new Size(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
+            Size pageSize = new(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
             PrintBox.Measure(pageSize);
             PrintBox.Arrange(new Rect(pageSize.Width - PrintBox.DesiredSize.Width, (pageSize.Height - PrintBox.DesiredSize.Height) / 2,
                                         PrintBox.DesiredSize.Width,
