@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using System.Windows;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Konvert
 {
     public class Inventory : IDisposable
     {
-        public string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB;" +
-                                        "AttachDbFilename=D:\\Konvert\\Forms\\StartForm\\DB.mdf;" +
-                                        "Integrated Security=True;Connect Timeout=30";
-       public readonly SqlConnection sqlConnection = new ("Data Source = (LocalDB)\\MSSQLLocalDB;" +
-                                                         "AttachDbFilename=D:\\Konvert\\Forms\\StartForm\\DB.mdf;" +
-                                                         "Integrated Security=True;Connect Timeout=30");/// Connection String
+        static string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB.mdf");
+        public string connectionString = $"Data Source = (LocalDB)\\MSSQLLocalDB;" +
+            "AttachDbFilename=" + path + "; Integrated Security=True;Connect Timeout=30";
+        public readonly SqlConnection sqlConnection = new("Data Source = (LocalDB)\\MSSQLLocalDB;" +
+            "AttachDbFilename=" + path + "; Integrated Security=True;Connect Timeout=30");/// Connection String
         public string sqlRequest; /// Строка SqlCommand для операций с БД
         public int idInv, indexInv, counterDB, btnclick; /// Переменная для Id и Index БД
         public string firmInv, regionInv, areaInv, cityInv, streetInv, homeInv, frameInv, structureInv, flatInv; /// Переменные для занесения данных в БД
-        //public List<int> idFromDB = new();
         public List<int> idFromDB = new List<int>();
         public string defaultPrinterName;
 
@@ -26,6 +22,11 @@ namespace Konvert
         {
             throw new NotImplementedException();
             
+        }
+
+        public void Connect()
+        {
+
         }
 
         public void DBOpen()
@@ -105,7 +106,7 @@ namespace Konvert
         /// 
         public void DelInTable()
         {
-            using (SqlCommand command = new("DELETE FROM Recipient WHERE Firm = '" + firmInv + "'", sqlConnection))
+            using (SqlCommand command = new("DELETE FROM Recipient WHERE Firm = N'" + firmInv + "'", sqlConnection))
             {
                 try
                 {
@@ -126,7 +127,6 @@ namespace Konvert
         /// 
         public void FindInTable()
         {
-
             SqlCommand command = new(sqlRequest, sqlConnection);
             DBOpen(); // Открываем базу данных
             SqlDataReader reader = command.ExecuteReader();
@@ -148,10 +148,8 @@ namespace Konvert
             }
             catch
             {
-                MessageBox.Show(idInv.ToString());
                 idInv = 0;
             }
-
             reader.Close();
             DBClose(); // закрываем базу данных
         }
@@ -163,7 +161,7 @@ namespace Konvert
             ///
             /// Убираем пробелы в начале и конце RecipientTextBox
             /// 
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Firm FROM [Recipient] WHERE Firm = '" + firmInv.Trim() + "'", sqlConnection))
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT Firm FROM [Recipient] WHERE Firm = N'" + firmInv.Trim() + "'", sqlConnection))
             {
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
@@ -221,6 +219,7 @@ namespace Konvert
         {
             using (SqlCommand command = sqlConnection.CreateCommand())
             {
+
                 idFromDB.Clear();
                 command.CommandText = "SELECT Id FROM Recipient";
                 DBOpen();
@@ -232,6 +231,7 @@ namespace Konvert
                     }
                 }
                 DBClose();
+                
             }
         }
 

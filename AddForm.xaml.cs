@@ -12,6 +12,7 @@ namespace Konvert
     {
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
         private int positionDB;
+        private string closeForm = "StartForm";
 
         public AddForm()
         {
@@ -47,17 +48,43 @@ namespace Konvert
                     }
                     e.Cancel = false;
                 }
+                
                 if (messageBox1.DialogResult == false)
                 {
+                    switch (closeForm)
+                    {
+                        case "StartForm":
+                            StartForm startForm = new();
+                            startForm.Show();
+                            break;
+
+                        case "PrintForm":
+                            PrintForm printForm = new();
+                            printForm.Show();
+                            break;
+                        default:
+                            break;
+                    }
                     e.Cancel = false;
-                    StartForm startForm = new StartForm();
-                    startForm.Show();
                 }
             }
             else
             {
-                StartForm startForm = new();
-                startForm.Show();
+                switch (closeForm)
+                {
+                    case "StartForm":
+                        StartForm startForm = new();
+                        startForm.Show();
+                        break;
+
+                    case "PrintForm":
+                        PrintForm printForm = new();
+                        printForm.Show();
+                        break;
+                    default:
+                        break;
+                }
+                e.Cancel = false;
             }
         }
 
@@ -85,16 +112,17 @@ namespace Konvert
         }
         public void ClearBox() ///Очистка TextBox
         {
-            FirmBox.Text = "";
+            FirmBox.Text = KonvertBisness.firmInv = "";
             IndexBox.Text = "";
-            RegionBox.Text = "";
-            AreaBox.Text = "";
-            CityBox.Text = "";
-            StreetBox.Text = "";
-            HomeBox.Text = "";
-            FrameBox.Text = "";
-            StructureBox.Text = "";
-            FlatBox.Text = "";
+            KonvertBisness.indexInv = 0;
+            RegionBox.Text = KonvertBisness.regionInv = "";
+            AreaBox.Text = KonvertBisness.areaInv = "";
+            CityBox.Text = KonvertBisness.cityInv = "";
+            StreetBox.Text = KonvertBisness.streetInv = "";
+            HomeBox.Text = KonvertBisness.homeInv = "";
+            FrameBox.Text = KonvertBisness.frameInv = "";
+            StructureBox.Text = KonvertBisness.structureInv = "";
+            FlatBox.Text = KonvertBisness.flatInv = "";
             CounterDB();
         }
         ///
@@ -114,7 +142,7 @@ namespace Konvert
             FlatBox.Text = KonvertBisness.flatInv;
         } 
         /// 
-        /// Присваивание данныъх из TextBox в БД
+        /// Присваивание данных из TextBox в БД
         /// 
         private void DBFromBox() /// Передача данных из переменных в TextBox
         {
@@ -174,8 +202,7 @@ namespace Konvert
         /// 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            StartForm startForm = new();
-            startForm.Show();
+            closeForm = "StartForm";
             Close();
         }
         /// 
@@ -183,8 +210,7 @@ namespace Konvert
         /// 
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
-            PrintForm printForm = new();
-            printForm.Show();
+            closeForm = "PrintForm";
             Close();
         }
         /// 
@@ -252,6 +278,6 @@ namespace Konvert
             KonvertBisness.FindInTable();
             BoxFromDB();
         }
-  
+
     }
 }
