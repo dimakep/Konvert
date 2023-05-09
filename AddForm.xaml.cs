@@ -239,7 +239,6 @@ namespace Konvert
                 {
                     KonvertBisness.idInv = KonvertBisness.idFromDB[positionDB - 1];
                 }
-                MessageBox.Show(KonvertBisness.idInv.ToString());
                 CounterDB();
                 KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + KonvertBisness.idInv + "'";
                 KonvertBisness.FindInTable();
@@ -257,7 +256,6 @@ namespace Konvert
             {
                 KonvertBisness.idInv = KonvertBisness.idFromDB[positionDB - 1];
             }
-            MessageBox.Show(KonvertBisness.idInv.ToString());
             CounterDB();
             KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + KonvertBisness.idInv + "'";
             KonvertBisness.FindInTable();
