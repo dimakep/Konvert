@@ -19,7 +19,6 @@ namespace Konvert
         {
             InitializeComponent();
             ImagePrintIco.Source = new BitmapImage(new Uri("D:\\Konvert\\Forms\\StartForm\\printer.png"));
-            
             string query = "SELECT Id, Firm FROM Recipient";
             using (SqlConnection connection = new(KonvertBisness.connectionString))
             {
@@ -27,7 +26,6 @@ namespace Konvert
                 SqlDataAdapter adapter = new(command);
                 DataSet dataSet = new();
                 _ = adapter.Fill(dataSet, "Recipient");
-            
                 // Создаем объект CollectionViewSource для привязки ComboBox к данным
                 CollectionViewSource viewSource = new CollectionViewSource();
                 viewSource.Source = dataSet.Tables["Recipient"].DefaultView;
@@ -37,7 +35,6 @@ namespace Konvert
                 FirmBox.DisplayMemberPath = "Firm";
                 FirmBox.SelectedValuePath = "Id";
             }
-            
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -103,7 +100,7 @@ namespace Konvert
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Получаем список доступных принтеров
-            LocalPrintServer printServer = new LocalPrintServer();
+            LocalPrintServer printServer = new();
             PrintQueueCollection printQueues = printServer.GetPrintQueues();
 
             // Заполняем ComboBox списком принтеров

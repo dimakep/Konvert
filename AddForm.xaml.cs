@@ -23,7 +23,6 @@ namespace Konvert
             CounterDB();
             FirmBox.Focus();
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (FirmBox.Text != "")
@@ -87,13 +86,11 @@ namespace Konvert
                 e.Cancel = false;
             }
         }
-
         private void CounterDB()
         {
             KonvertBisness.DBAddArray();
             TextBoxGrid.Text = positionDB + " / " + KonvertBisness.idFromDB.Count;
         }
-
         private void IndexBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
@@ -104,7 +101,6 @@ namespace Konvert
             KonvertBisness.CoincidenceFind();
             BoxFromDB();
         }
-
         public static bool IsValid(string str)
         {
             int i;
@@ -214,11 +210,8 @@ namespace Konvert
             Close();
         }
         /// 
-
         /// Кнопки перехода по строкам БД с загрузкой данных в TextBox`s
-
         /// Кнопки перехода по строкам БД
-
         /// 
         private void BtnFFBack_Click(object sender, RoutedEventArgs e)
         {
@@ -266,7 +259,6 @@ namespace Konvert
             CounterDB();
             KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + KonvertBisness.idInv + "'";
             KonvertBisness.FindInTable();
-            ClearBox();
             BoxFromDB();
         }
         private void BtnFForward_Click(object sender, RoutedEventArgs e)
@@ -278,6 +270,5 @@ namespace Konvert
             KonvertBisness.FindInTable();
             BoxFromDB();
         }
-
     }
 }

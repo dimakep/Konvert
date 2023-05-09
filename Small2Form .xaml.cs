@@ -36,7 +36,7 @@ namespace Konvert
             printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
             printDialog.PrintTicket.PageResolution = new PageResolution(96, 96);
-            Size pageSize = new Size(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
+            Size pageSize = new(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
             PrintBox.Measure(pageSize);
             PrintBox.Arrange(new Rect(pageSize.Width - PrintBox.DesiredSize.Width, (pageSize.Height - PrintBox.DesiredSize.Height) / 2,
                                         PrintBox.DesiredSize.Width,
