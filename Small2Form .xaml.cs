@@ -18,14 +18,15 @@ namespace Konvert
             string home, string frame, string structure, string flat, string printer)
         {
             InitializeComponent();
-            RecipientBox.Text =firm;
+            RecipientBox.Text = firm;
             IndexBox.Text = Convert.ToString(index);
-            RegionBox.Text = region + " " + area;
-            CityBox.Text = city + " " + street;
-            HomeBox.Text += home;
-            FrameBox.Text += frame;
+            RegionBox.Text = $"{region} обл., {area} р-он";
+            CityBox.Text = $"г. {city}   ул. {street}";
+            HomeBox.Text = $"д.{home}  корп.{frame}  стр.{structure}  кв.{flat}";
+            /*FrameBox.Text += frame;
             StructureBox.Text += structure;
             FlatBox.Text += flat;
+            */
             printerName = printer;
 
         }

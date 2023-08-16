@@ -20,7 +20,7 @@
     </Window.Style>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Fon.jpg" />
+            <ImageBrush ImageSource="/Resources/Fon.jpg" />
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

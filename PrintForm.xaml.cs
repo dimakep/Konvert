@@ -5,6 +5,9 @@ using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Controls;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Konvert
 {
@@ -14,11 +17,11 @@ namespace Konvert
     public partial class PrintForm : Window
     {
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
+        
 
         public PrintForm()
         {
             InitializeComponent();
-            ImagePrintIco.Source = new BitmapImage(new Uri("D:\\Konvert\\Forms\\StartForm\\printer.png"));
             string query = "SELECT Id, Firm FROM Recipient";
             using (SqlConnection connection = new(KonvertBisness.connectionString))
             {
@@ -112,7 +115,6 @@ namespace Konvert
             KonvertBisness.defaultPrinterName = printServer.DefaultPrintQueue.Name;
             PrinterNameBox.SelectedItem = KonvertBisness.defaultPrinterName;
         }
-
     }
 }
 

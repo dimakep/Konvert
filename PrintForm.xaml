@@ -36,7 +36,7 @@
 
         </Grid.RowDefinitions>
         <Image x:Name="ImagePrintIco" 
-               HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="/printer.png" Grid.RowSpan="2"/>
+               HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="Resources/printer.png" Grid.RowSpan="2"/>
         <ComboBox x:Name="PrinterNameBox" 
                   Style="{StaticResource MaterialDesignFilledComboBox}"
                   Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto"/>

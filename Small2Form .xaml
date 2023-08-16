@@ -25,7 +25,7 @@
                     <ColumnDefinition Width="2.8cm"/>
                     <ColumnDefinition Width="2.6cm"/>
                     <ColumnDefinition Width="2.4cm"/>
-                    <ColumnDefinition Width="1.5cm"/>
+                    <ColumnDefinition Width="3cm"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -63,13 +63,15 @@
                          Margin="0,0,0,0" BorderThickness="0,0,0,0" TextWrapping="WrapWithOverflow" VerticalContentAlignment="Top"
                          Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="2" Padding="0,0,0,0"/>
                 <TextBox x:Name="HomeBox" Text="д. "
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"/>
-                <TextBox x:Name="FrameBox" Text="корп. "
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"
+                         Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+                <!--<TextBox x:Name="FrameBox" Text="корп. "
                      Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="4" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="StructureBox" Text="стр. "
                      Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="FlatBox" Text="оф. "
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"/>
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"
+                         Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
                 <TextBox x:Name="IndexBox" Text="Index"
                      Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" />
             </Grid>

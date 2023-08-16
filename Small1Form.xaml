@@ -25,7 +25,7 @@
                     <ColumnDefinition Width="2.8cm"/>
                     <ColumnDefinition Width="2.6cm"/>
                     <ColumnDefinition Width="2.4cm"/>
-                    <ColumnDefinition Width="1.5cm"/>
+                    <ColumnDefinition Width="113.385826771654"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -65,7 +65,8 @@
                 <TextBox x:Name="StructureBox" 
                      Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="FlatBox" 
-                     Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"/>
+                     Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"
+                         Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBox x:Name="CityBox"
                      Margin="10,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Padding="0,0,0,0"/>
                 <TextBox x:Name="AreaBox" 

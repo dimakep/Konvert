@@ -26,15 +26,15 @@
                     <ColumnDefinition Width="1.6cm"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1.5cm"/>
+                    <RowDefinition Height="83.1496062992126"/>
                     <RowDefinition Height="0.7cm"/>
                     <RowDefinition Height="0.7cm"/>
                     <RowDefinition Height="0.7cm"/>
+                    <RowDefinition Height="0.6cm"/>
                     <RowDefinition Height="0.7cm"/>
+                    <RowDefinition Height="4.2cm"/>
                     <RowDefinition Height="0.7cm"/>
-                    <RowDefinition Height="4.1cm"/>
-                    <RowDefinition Height="0.7cm"/>
-                    <RowDefinition Height="0.7cm"/>
+                    <RowDefinition Height="0.6cm"/>
                     <RowDefinition Height="0.7cm"/>
                     <RowDefinition Height="0.7cm"/>
                     <RowDefinition Height="0.6cm"/>
@@ -51,23 +51,27 @@
                 <TextBox x:Name="Line4" Text="215110"
                      Margin="195,1,0,0" BorderThickness="0,0,0,0" Grid.Row="5" Grid.Column="1"
                          VerticalContentAlignment="Top"/>
-                <TextBox x:Name="RecipientBox" Text="215110" 
+                <TextBox x:Name="RecipientBox" 
                          Grid.Row="7" Grid.Column="3" VerticalContentAlignment="Top" TextWrapping="WrapWithOverflow"
                          Margin="1.5cm,0,0,0"  BorderThickness="0,0,0,0" Grid.RowSpan="2"/>
-                <TextBox x:Name="RegionBox" Text="215110" 
+                <TextBox x:Name="RegionBox"  
                          Grid.Row="9" Grid.Column="3" VerticalContentAlignment="Top" TextWrapping="WrapWithOverflow"
                          Margin="1.5cm,0,0,0"  BorderThickness="0,0,0,0" Grid.RowSpan="2"/>
-                <TextBox x:Name="CityBox" Text="215110" 
+                <TextBox x:Name="CityBox"  
                          Grid.Row="11" Grid.Column="3" VerticalContentAlignment="Top" TextWrapping="WrapWithOverflow"
                          Margin="0,0,0,0"  BorderThickness="0,0,0,0"/>
-                <TextBox x:Name="HomeBox" Text="д. "                         
-                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="2.5cm" HorizontalAlignment="Left"/>
-                <TextBox x:Name="FrameBox" Text="корп. "
-                     Margin="2.5cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="2.5cm" HorizontalAlignment="Left"/>
+                <TextBox x:Name="HomeBox"                         
+                     Margin="0,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="Auto" 
+                         HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <!--<TextBox x:Name="FrameBox" Text="корп. "
+                     Margin="2.5cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="2.5cm" HorizontalAlignment="Left"
+                         VerticalAlignment="Top"/>
                 <TextBox x:Name="StructureBox" Text="стр. "
-                     Margin="5cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="2.5cm" HorizontalAlignment="Left"/>
+                     Margin="5cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="2.5cm" HorizontalAlignment="Left"
+                         VerticalAlignment="Top"/>
                 <TextBox x:Name="FlatBox" Text="оф. "
-                     Margin="7.5cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="2.5cm" HorizontalAlignment="Left"/>
+                     Margin="7.5cm,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" Width="2.5cm" HorizontalAlignment="Left"
+                         Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
                 <TextBox x:Name="IndexBox" Text="215110" 
                          Grid.Row="13" Grid.Column="3"
                          Margin="0,0,0,0" Width="3cm" Height="23" HorizontalAlignment="Left" BorderThickness="0,0,0,0"/>

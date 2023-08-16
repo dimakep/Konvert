@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Printing;
 using System;
 
+
 namespace Konvert
 {
     /// <summary>
@@ -10,20 +11,26 @@ namespace Konvert
     /// </summary>
     public partial class BigForm : Window
     {
+        private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
         public readonly string printerName;
 
         public BigForm(string firm, int index, string region, string area, string city, string street,
             string home, string frame, string structure, string flat, string printer)
         {
             InitializeComponent();
+
+            if (region != "") { region = $"{region} обл.,"; };
+            if (area != "") { area = $"{area} р-он"; };
+            if (street != "") { street = $"ул. {street}"; };
+            if (home != "") { home = $"д. {home}"; };
+            if (frame != "") { frame = $"корп. {frame}"; };
+            if (structure != "") { structure = $"стр. {structure}"; };
+            if (flat != "") { flat = $"кв. {flat}"; };
+            
             RecipientBox.Text = firm;
-            IndexBox.Text = Convert.ToString(index);
-            RegionBox.Text = region + " " + area;
-            CityBox.Text = city + " " + street;
-            HomeBox.Text += home;
-            FrameBox.Text += frame;
-            StructureBox.Text += structure;
-            FlatBox.Text += flat;
+            RegionBox.Text = $"{region} {area}";
+            CityBox.Text = $"г. {city}   {street}";
+            HomeBox.Text = $"{home}  {frame}  {structure}  {flat}";
             printerName = printer;
         }
 
