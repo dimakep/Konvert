@@ -5,7 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <StartupObject>StartForm.App</StartupObject>
-    <ApplicationIcon>E-mail_37290.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\E-mail_37290.ico</ApplicationIcon>
     <PackageIcon>E-mail_37290.ico</PackageIcon>
     <PackageIconUrl />
     <NeutralLanguage>ru</NeutralLanguage>
@@ -13,7 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="DB.mdf" />
     <None Remove="FFBack.png" />
     <None Remove="Fon.jpg" />
     <None Remove="Printer.png" />
@@ -24,6 +23,7 @@
     <None Remove="Resources\FFForward.png" />
     <None Remove="Resources\Fon.jpg" />
     <None Remove="Resources\Forward.png" />
+    <None Remove="Resources\Icon1.ico" />
     <None Remove="Resources\icons8-печать-50.png" />
     <None Remove="Resources\icons8-подача-бумаги-50.png" />
     <None Remove="Resources\icons8-сообщение-50.png" />
@@ -34,13 +34,7 @@
     <None Remove="Resources\Маленький конверт.jpg" />
     <None Remove="Большой конверт.jpg" />
     <None Remove="Маленький конверт.jpg" />
-    <Content Include="DB.mdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Resources\E-mail_37290.ico">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </Resource>
+    <Page Remove="Resources\MaterialDesignTheme.Label.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,24 +44,60 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="FFBack.png" />
-    <Resource Include="Fon.jpg" />
-    <Resource Include="Printer.png" />
-    <Resource Include="Resources\Back.png" />
-    <Resource Include="Resources\BlackKonvert.png" />
-    <Resource Include="Resources\FFBack.png" />
-    <Resource Include="Resources\FFForward.png" />
-    <Resource Include="Resources\Fon.jpg" />
-    <Resource Include="Resources\Forward.png" />
-    <Resource Include="Resources\icons8-печать-50.png" />
-    <Resource Include="Resources\icons8-подача-бумаги-50.png" />
-    <Resource Include="Resources\icons8-сообщение-50.png" />
-    <Resource Include="Resources\Image.bmp" />
-    <Resource Include="Resources\Incept_37286.ico" />
-    <Resource Include="Resources\Printer.png" />
-    <Resource Include="Resources\Большой конверт.jpg" />
-    <Resource Include="Resources\Маленький конверт.jpg" />
-    <Resource Include="Маленький конверт.jpg" />
+    
+    <Resource Include="Resources\Back.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\BlackKonvert.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\E-mail_37290.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\FFBack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\FFForward.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Forward.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Icon1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8-печать-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8-подача-бумаги-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icons8-сообщение-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Image.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Incept_37286.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\MaterialDesignTheme.Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Printer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Большой конверт.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Маленький конверт.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    
   </ItemGroup>
   <ItemGroup>
     <Compile Update="MessageBox2.xaml.cs">
@@ -99,6 +129,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="DB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DB_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

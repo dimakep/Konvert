@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Printing;
-using System.Windows.Input;
 using System;
 
 namespace Konvert
@@ -10,7 +9,7 @@ namespace Konvert
     /// Логика взаимодействия для BigForm.xaml
     /// </summary>
     public partial class Small2Form : Window
-        
+
     {
         private string printerName;
         private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
@@ -18,19 +17,29 @@ namespace Konvert
             string home, string frame, string structure, string flat, string printer)
         {
             InitializeComponent();
+
+            if (region != "") region = $"{region} обл.,";
+            if (area != "") area = $"{area} р-он";
+            if (street != "") street = $"ул. {street}";
+            if (home != "") home = $"д. {home}";
+            if (frame != "") frame = $"корп. {frame}";
+            if (structure != "") structure = $"стр. {structure}";
+            if (flat != "") flat = $"кв. {flat}";
+            city = $"г. {city}";
+            if (region == "" && area == "")
+            {
+                region = $"{city}   {street}";
+
+            }
             RecipientBox.Text = firm;
+            RegionBox.Text = $"{region} {area}";
+            CityBox.Text = $"{city}   {street}";
+            HomeBox.Text = $"{home}  {frame}  {structure}  {flat}";
             IndexBox.Text = Convert.ToString(index);
-            RegionBox.Text = $"{region} обл., {area} р-он";
-            CityBox.Text = $"г. {city}   ул. {street}";
-            HomeBox.Text = $"д.{home}  корп.{frame}  стр.{structure}  кв.{flat}";
-            /*FrameBox.Text += frame;
-            StructureBox.Text += structure;
-            FlatBox.Text += flat;
-            */
             printerName = printer;
 
         }
-       
+
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new();

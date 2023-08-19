@@ -61,112 +61,122 @@ namespace Konvert.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Back {
+        internal static System.Drawing.Bitmap Back {
             get {
                 object obj = ResourceManager.GetObject("Back", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] BlackKonvert {
+        internal static System.Drawing.Bitmap BlackKonvert {
             get {
                 object obj = ResourceManager.GetObject("BlackKonvert", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
-        internal static byte[] E_mail_37290 {
+        internal static System.Drawing.Icon E_mail_372901 {
             get {
-                object obj = ResourceManager.GetObject("E_mail_37290", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("E_mail_372901", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] FFBack {
+        internal static System.Drawing.Bitmap FFBack {
             get {
                 object obj = ResourceManager.GetObject("FFBack", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] FFForward {
+        internal static System.Drawing.Bitmap FFForward {
             get {
                 object obj = ResourceManager.GetObject("FFForward", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Fon {
+        internal static System.Drawing.Bitmap Fon {
             get {
                 object obj = ResourceManager.GetObject("Fon", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Forward {
+        internal static System.Drawing.Bitmap Forward {
             get {
                 object obj = ResourceManager.GetObject("Forward", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
-        internal static byte[] icons8_печать_50 {
+        internal static System.Drawing.Icon Icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Icon1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_печать_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_печать_50", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] icons8_подача_бумаги_50 {
+        internal static System.Drawing.Bitmap icons8_подача_бумаги_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_подача_бумаги_50", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] icons8_сообщение_50 {
+        internal static System.Drawing.Bitmap icons8_сообщение_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_сообщение_50", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Image {
+        internal static System.Drawing.Bitmap Image {
             get {
                 object obj = ResourceManager.GetObject("Image", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -181,32 +191,58 @@ namespace Konvert.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
-        internal static byte[] Printer {
+        internal static System.Drawing.Icon Incept_372861 {
+            get {
+                object obj = ResourceManager.GetObject("Incept_372861", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;ResourceDictionary xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        ///                    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&gt;
+        ///  &lt;Style x:Key=&quot;MaterialDesignLabel&quot; TargetType=&quot;{x:Type Label}&quot;&gt;
+        ///    &lt;Setter Property=&quot;Background&quot; Value=&quot;Transparent&quot; /&gt;
+        ///    &lt;Setter Property=&quot;Foreground&quot; Value=&quot;{DynamicResource MaterialDesignBody}&quot; /&gt;
+        ///    &lt;Setter Property=&quot;HorizontalContentAlignment&quot; Value=&quot;Left&quot; /&gt;
+        ///    &lt;Setter Property=&quot;Padding&quot; Value=&quot;4&quot; /&gt;
+        ///    &lt;Setter Property=&quot;Templa [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string MaterialDesignTheme_Label {
+            get {
+                return ResourceManager.GetString("MaterialDesignTheme_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Printer {
             get {
                 object obj = ResourceManager.GetObject("Printer", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Большой_конверт {
+        internal static System.Drawing.Bitmap Большой_конверт {
             get {
                 object obj = ResourceManager.GetObject("Большой_конверт", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Маленький_конверт {
+        internal static System.Drawing.Bitmap Маленький_конверт {
             get {
                 object obj = ResourceManager.GetObject("Маленький_конверт", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

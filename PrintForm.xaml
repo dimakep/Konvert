@@ -36,7 +36,8 @@
 
         </Grid.RowDefinitions>
         <Image x:Name="ImagePrintIco" 
-               HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="Resources/printer.png" Grid.RowSpan="2"/>
+               HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Grid.RowSpan="2" Source="/Resources/Printer.png" />
+
         <ComboBox x:Name="PrinterNameBox" 
                   Style="{StaticResource MaterialDesignFilledComboBox}"
                   Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto"/>
@@ -65,7 +66,7 @@
                 Style="{StaticResource MaterialDesignTabRadioButton}" RenderTransformOrigin="0.5,0.5" />
         </StackPanel>
         <Image x:Name="ImageKonvert" 
-               HorizontalAlignment="Stretch" Height="Auto" Width="Auto" Source="/Маленький конверт.jpg" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
+               HorizontalAlignment="Stretch" Height="Auto" Width="Auto" Source="/Resources/Маленький конверт.jpg" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
         <Button x:Name="BtnPrint" Click="BtnPrint_Click"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"

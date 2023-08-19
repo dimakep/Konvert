@@ -20,12 +20,14 @@
     </Window.Style>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Fon.jpg" />
+            <!--<ImageBrush ImageSource="/Resources/Fon.jpg"/>-->
+            <ImageBrush ImageSource="/Resources/fon.jpg" />
+            
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         

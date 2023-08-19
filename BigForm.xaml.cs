@@ -11,7 +11,6 @@ namespace Konvert
     /// </summary>
     public partial class BigForm : Window
     {
-        private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
         public readonly string printerName;
 
         public BigForm(string firm, int index, string region, string area, string city, string street,
@@ -19,18 +18,27 @@ namespace Konvert
         {
             InitializeComponent();
 
-            if (region != "") { region = $"{region} обл.,"; };
-            if (area != "") { area = $"{area} р-он"; };
-            if (street != "") { street = $"ул. {street}"; };
-            if (home != "") { home = $"д. {home}"; };
-            if (frame != "") { frame = $"корп. {frame}"; };
-            if (structure != "") { structure = $"стр. {structure}"; };
-            if (flat != "") { flat = $"кв. {flat}"; };
-            
+            /// Проверка на пустые поля в базе данных
+            if (region != "") region = $"{region} обл.,";
+            if (area != "") area = $"{area} р-он";
+            if (street != "") street = $"ул. {street}";
+            if (home != "") home = $"д. {home}";
+            if (frame != "") frame = $"корп. {frame}";
+            if (structure != "") structure = $"стр. {structure}";
+            if (flat != "") flat = $"кв. {flat}";
+            city = $"г. {city}";
+            if (region == "" && area == "")
+            {
+                region = $"{city}   {street}";
+                
+            }
+
+            /// Заполнение полей данными из базы данных
             RecipientBox.Text = firm;
             RegionBox.Text = $"{region} {area}";
-            CityBox.Text = $"г. {city}   {street}";
+            CityBox.Text = $"{city}   {street}";
             HomeBox.Text = $"{home}  {frame}  {structure}  {flat}";
+            IndexBox.Text = Convert.ToString(index);
             printerName = printer;
         }
 
