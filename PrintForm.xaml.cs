@@ -44,15 +44,12 @@ namespace Konvert
             startForm.Show();
             Close();
         }
-
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             AddForm addForm = new();
             addForm.Show();
             Close();
         }
-
-
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             KonvertBisness.firmInv = FirmBox.Text;
@@ -82,17 +79,14 @@ namespace Konvert
             }
 
         }
-
         private void Small1Tab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Маленький конверт.jpg", UriKind.Absolute));
         }
-
         private void Small2Tab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
         }
-
         private void BigTab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
@@ -112,6 +106,12 @@ namespace Konvert
             // Получаем имя принтера по умолчанию
             KonvertBisness.defaultPrinterName = printServer.DefaultPrintQueue.Name;
             PrinterNameBox.SelectedItem = KonvertBisness.defaultPrinterName;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            StartForm startForm = new();
+            startForm.Show();
         }
     }
 }

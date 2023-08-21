@@ -17,9 +17,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="1\MaterialDesignTheme.Label.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="AddForm.xaml">
       <SubType>Designer</SubType>
     </Page>
