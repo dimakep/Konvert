@@ -23,21 +23,19 @@ namespace Konvert
         {
             InitializeComponent();
             string query = "SELECT Id, Firm FROM Recipient";
-            using (SqlConnection connection = new(KonvertBisness.connectionString))
-            {
-                SqlCommand command = new(query, connection);
-                SqlDataAdapter adapter = new(command);
-                DataSet dataSet = new();
-                _ = adapter.Fill(dataSet, "Recipient");
-                // Создаем объект CollectionViewSource для привязки ComboBox к данным
-                CollectionViewSource viewSource = new CollectionViewSource();
-                viewSource.Source = dataSet.Tables["Recipient"].DefaultView;
+            using SqlConnection connection = new(KonvertBisness.connectionString);
+            SqlCommand command = new(query, connection);
+            SqlDataAdapter adapter = new(command);
+            DataSet dataSet = new();
+            _ = adapter.Fill(dataSet, "Recipient");
+            // Создаем объект CollectionViewSource для привязки ComboBox к данным
+            CollectionViewSource viewSource = new();
+            viewSource.Source = dataSet.Tables["Recipient"].DefaultView;
 
-                // Привязываем ComboBox к объекту CollectionViewSource
-                FirmBox.ItemsSource = viewSource.View;
-                FirmBox.DisplayMemberPath = "Firm";
-                FirmBox.SelectedValuePath = "Id";
-            }
+            // Привязываем ComboBox к объекту CollectionViewSource
+            FirmBox.ItemsSource = viewSource.View;
+            FirmBox.DisplayMemberPath = "Firm";
+            FirmBox.SelectedValuePath = "Id";
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -49,7 +47,7 @@ namespace Konvert
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddForm addForm = new AddForm();
+            AddForm addForm = new();
             addForm.Show();
             Close();
         }

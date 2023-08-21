@@ -11,8 +11,7 @@ namespace Konvert
     public partial class Small2Form : Window
 
     {
-        private string printerName;
-        private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
+        private readonly string printerName;
         public Small2Form(string firm, int index, string region, string area, string city, string street, 
             string home, string frame, string structure, string flat, string printer)
         {
@@ -29,7 +28,7 @@ namespace Konvert
             if (region == "" && area == "")
             {
                 region = $"{city}   {street}";
-
+                city = street = "";
             }
             RecipientBox.Text = firm;
             RegionBox.Text = $"{region} {area}";

@@ -103,8 +103,7 @@ namespace Konvert
         }
         public static bool IsValid(string str)
         {
-            int i;
-            return int.TryParse(str, out i) && i >= 1 && i <= 999999;
+            return int.TryParse(str, out int i) && i >= 1 && i <= 999999;
         }
         public void ClearBox() ///Очистка TextBox
         {
