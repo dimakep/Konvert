@@ -16,14 +16,14 @@ namespace Konvert
     /// </summary>
     public partial class PrintForm : Window
     {
-        private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
-        
+        //private readonly Inventory Inventory = new(); // Подключение класса Inventory
+        int envelope_format;
 
         public PrintForm()
         {
             InitializeComponent();
             string query = "SELECT Id, Firm FROM Recipient";
-            using SqlConnection connection = new(KonvertBisness.connectionString);
+            using SqlConnection connection = new(Inventory.connectionString);
             SqlCommand command = new(query, connection);
             SqlDataAdapter adapter = new(command);
             DataSet dataSet = new();
@@ -52,44 +52,49 @@ namespace Konvert
         }
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
-            KonvertBisness.firmInv = FirmBox.Text;
-            KonvertBisness.sqlRequest = "SELECT * FROM Recipient WHERE Firm = N'" + KonvertBisness.firmInv + "'";
-            KonvertBisness.FindInTable();
+            
+            Variables.Firm = FirmBox.Text;
+            Preview_Form preview_Form = new(envelope_format);
+            _ = preview_Form.ShowDialog();
+            /*
             if ((bool)BigTab.IsChecked)
             {
-                BigForm BigForm = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
-                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
-                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                BigForm BigForm = new(Inventory.firmInv, Inventory.indexInv, Inventory.regionInv,
+                    Inventory.areaInv, Inventory.cityInv, Inventory.streetInv, Inventory.homeInv,
+                    Inventory.frameInv, Inventory.structureInv, Inventory.flatInv, PrinterNameBox.Text);
                 _ = BigForm.ShowDialog();
 
             }
             if ((bool)Small1Tab.IsChecked)
             {
-                Small1Form small1Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
-                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
-                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                Small1Form small1Form = new(Inventory.firmInv, Inventory.indexInv, Inventory.regionInv,
+                    Inventory.areaInv, Inventory.cityInv, Inventory.streetInv, Inventory.homeInv,
+                    Inventory.frameInv, Inventory.structureInv, Inventory.flatInv, PrinterNameBox.Text);
                 _ = small1Form.ShowDialog();
             }
             if ((bool)Small2Tab.IsChecked)
             {
-                Small2Form small2Form = new(KonvertBisness.firmInv, KonvertBisness.indexInv, KonvertBisness.regionInv,
-                    KonvertBisness.areaInv, KonvertBisness.cityInv, KonvertBisness.streetInv, KonvertBisness.homeInv,
-                    KonvertBisness.frameInv, KonvertBisness.structureInv, KonvertBisness.flatInv, PrinterNameBox.Text);
+                Small2Form small2Form = new(Inventory.firmInv, Inventory.indexInv, Inventory.regionInv,
+                    Inventory.areaInv, Inventory.cityInv, Inventory.streetInv, Inventory.homeInv,
+                    Inventory.frameInv, Inventory.structureInv, Inventory.flatInv, PrinterNameBox.Text);
                 _ = small2Form.ShowDialog();
             }
-
+            */
         }
         private void Small1Tab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Маленький конверт.jpg", UriKind.Absolute));
+            envelope_format = 1;
         }
         private void Small2Tab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
+            envelope_format = 2;
         }
         private void BigTab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
+            envelope_format = 3;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -104,8 +109,8 @@ namespace Konvert
                 PrinterNameBox.Items.Add(printer.Name);
             }
             // Получаем имя принтера по умолчанию
-            KonvertBisness.defaultPrinterName = printServer.DefaultPrintQueue.Name;
-            PrinterNameBox.SelectedItem = KonvertBisness.defaultPrinterName;
+            Variables.Printer = printServer.DefaultPrintQueue.Name;
+            PrinterNameBox.SelectedItem = Variables.Printer;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -10,6 +10,9 @@
     <Compile Update="MessageBox1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Preview_Form.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -21,6 +24,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MessageBox2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Preview_Form.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Small1Form.xaml">

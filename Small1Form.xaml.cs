@@ -10,8 +10,8 @@ namespace Konvert
     /// </summary>
     public partial class Small1Form : Window
     {
-        private string printerName;
-        private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
+        private readonly string printerName;
+
         public Small1Form(string firm, int index, string region, string area, string city, string street, 
             string home, string frame, string structure, string flat, string printer)
         {

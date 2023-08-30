@@ -2,35 +2,36 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Konvert
 {
-    public class Inventory
+    public static class Inventory
     {
         static readonly string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB.mdf");
-        public string connectionString = $"Data Source = (LocalDB)\\MSSQLLocalDB;" +
+        public static readonly string connectionString = $"Data Source = (LocalDB)\\MSSQLLocalDB;" +
             "AttachDbFilename=" + path + "; Integrated Security=True;Connect Timeout=30";
-        public readonly SqlConnection sqlConnection = new("Data Source = (LocalDB)\\MSSQLLocalDB;" +
+        public static readonly SqlConnection sqlConnection = new("Data Source = (LocalDB)\\MSSQLLocalDB;" +
             "AttachDbFilename=" + path + "; Integrated Security=True;Connect Timeout=30");/// Connection String
-        public string sqlRequest; /// Строка SqlCommand для операций с БД
-        public int idInv, indexInv, counterDB, btnclick; /// Переменная для Id и Index БД
-        public string firmInv, regionInv, areaInv, cityInv, streetInv, homeInv, frameInv, structureInv, flatInv; /// Переменные для занесения данных в БД
-        public List<int> idFromDB = new();
-        public string defaultPrinterName;
+        public static string sqlRequest; /// Строка SqlCommand для операций с БД
+        public static int counterDB, btnclick; /// Переменная для Id и Index БД
+        //private static string firmInv, regionInv, areaInv, cityInv, streetInv, homeInv, frameInv, structureInv, flatInv; /// Переменные для занесения данных в БД
+        public static List<int> idFromDB = new();
+        //private static string defaultPrinterName;
 
-        public void DBOpen()
+        public static void DBOpen()
         {
             sqlConnection.Open();
         }
 
-        public void DBClose()
+        public static void DBClose()
         {
             sqlConnection.Close();
         }
         ///
         /// Получение количества записей в БД
         ///
-        public void MaxId()
+        public static void MaxId()
         {
             SqlCommand command = new("SELECT COUNT(Id) FROM Recipient", sqlConnection);
             DBOpen();
@@ -40,7 +41,7 @@ namespace Konvert
         ///
         /// Добавление записи в таблицу БД
         /// 
-        public void AddInTable()
+        public static void AddInTable()
         {
             using SqlCommand command = new("INSERT INTO Recipient " +
                 " VALUES (@Firm, @Index, @Region, @Area, @City, @Street, @Home, @Frame, @Structure, @Flat)", sqlConnection);
@@ -48,50 +49,50 @@ namespace Konvert
                       ///
                       /// Привязка данных к колонкам таблицы
                       /// 
-            command.Parameters.Add(new SqlParameter("@Firm", firmInv));
-            command.Parameters.Add(new SqlParameter("@Index", indexInv));
-            command.Parameters.Add(new SqlParameter("@Region", regionInv));
-            command.Parameters.Add(new SqlParameter("@Area", areaInv));
-            command.Parameters.Add(new SqlParameter("@City", cityInv));
-            command.Parameters.Add(new SqlParameter("@Street", streetInv));
-            command.Parameters.Add(new SqlParameter("@Home", homeInv));
-            command.Parameters.Add(new SqlParameter("@Frame", frameInv));
-            command.Parameters.Add(new SqlParameter("@Structure", structureInv));
-            command.Parameters.Add(new SqlParameter("@Flat", flatInv));
+            command.Parameters.Add(new SqlParameter("@Firm", Variables.Firm));
+            command.Parameters.Add(new SqlParameter("@Index", Variables.Index));
+            command.Parameters.Add(new SqlParameter("@Region", Variables.Region));
+            command.Parameters.Add(new SqlParameter("@Area", Variables.Area));
+            command.Parameters.Add(new SqlParameter("@City", Variables.City));
+            command.Parameters.Add(new SqlParameter("@Street", Variables.Street));
+            command.Parameters.Add(new SqlParameter("@Home", Variables.Home));
+            command.Parameters.Add(new SqlParameter("@Frame", Variables.Frame));
+            command.Parameters.Add(new SqlParameter("@Structure", Variables.Structure));
+            command.Parameters.Add(new SqlParameter("@Flat", Variables.Flat));
             command.ExecuteNonQuery();/// Внесение данных в таблицу
             DBClose();
         }
         ///
         /// Изменение строки в таблице
         ///
-        public void UpdateInTable()
+        public static void UpdateInTable()
         {
             using SqlCommand command = new("UPDATE Recipient " +
                 " SET [Firm] = @Firm, [Index] = @Index, [Region] = @Region, [Area] = @Area, [City] = @City, [Street] = @Street, " +
                 "[Home] = @Home, [Frame] = @Frame, [Structure] = @Structure, [Flat] = @Flat " +
-                "WHERE Id = '" + idInv + "'", sqlConnection);
+                "WHERE Id = '" + Variables.ID + "'", sqlConnection);
             DBOpen(); // Открываем базу данных для добавление данных
             /// Привязка данных к колонкам таблицы
 
-            command.Parameters.AddWithValue("@Firm", firmInv);
-            command.Parameters.AddWithValue("@Index", indexInv);
-            command.Parameters.AddWithValue("@Region", regionInv);
-            command.Parameters.AddWithValue("@Area", areaInv);
-            command.Parameters.AddWithValue("@City", cityInv);
-            command.Parameters.AddWithValue("@Street", streetInv);
-            command.Parameters.AddWithValue("@Home", homeInv);
-            command.Parameters.AddWithValue("@Frame", frameInv);
-            command.Parameters.AddWithValue("@Structure", structureInv);
-            command.Parameters.AddWithValue("@Flat", frameInv);
+            command.Parameters.AddWithValue("@Firm", Variables.Firm);
+            command.Parameters.AddWithValue("@Index", Variables.Index);
+            command.Parameters.AddWithValue("@Region", Variables.Region);
+            command.Parameters.AddWithValue("@Area", Variables.Area);
+            command.Parameters.AddWithValue("@City", Variables.City);
+            command.Parameters.AddWithValue("@Street", Variables.Street);
+            command.Parameters.AddWithValue("@Home", Variables.Home);
+            command.Parameters.AddWithValue("@Frame", Variables.Frame);
+            command.Parameters.AddWithValue("@Structure", Variables.Structure);
+            command.Parameters.AddWithValue("@Flat", Variables.Flat);
             command.ExecuteNonQuery();// Внесение данных в таблицу
             DBClose(); // закрываем базу данных
         }
         ///
         /// Удаление заданной строки из БД по имени отправителя
         /// 
-        public void DelInTable()
+        public static void DelInTable()
         {
-            using SqlCommand command = new("DELETE FROM Recipient WHERE Firm = N'" + firmInv + "'", sqlConnection);
+            using SqlCommand command = new("DELETE FROM Recipient WHERE Firm = N'" + Variables.Firm + "'", sqlConnection);
             try
             {
                 DBOpen();
@@ -109,8 +110,9 @@ namespace Konvert
         /// 
         /// Поиск в базе данных
         /// 
-        public void FindInTable()
+        public static void FindInTable()
         {
+            Console.WriteLine(Variables.Firm);
             SqlCommand command = new(sqlRequest, sqlConnection);
             DBOpen(); // Открываем базу данных
             SqlDataReader reader = command.ExecuteReader();
@@ -118,9 +120,22 @@ namespace Konvert
             {
                 reader.Read();
                 /// Привязка данных к колонкам таблицы
-                idInv = Convert.ToInt32(reader[0]);
+                /// 
+                Variables.ID = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
+                Variables.Firm = reader[1].ToString();
+                Variables.Index = Convert.ToInt32(reader[2], CultureInfo.CurrentCulture);
+                Variables.Region = reader[3].ToString();
+                Variables.Area = reader[4].ToString();
+                Variables.City = reader[5].ToString();
+                Variables.Street = reader[6].ToString();
+                Variables.Home = reader[7].ToString();
+                Variables.Frame = reader[8].ToString();
+                Variables.Structure = reader[9].ToString();
+                Variables.Flat = reader[10].ToString();
+                /*
+                idInv = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
                 firmInv = reader[1].ToString();
-                indexInv = Convert.ToInt32(reader[2]);
+                indexInv = Convert.ToInt32(reader[2], CultureInfo.CurrentCulture);
                 regionInv = reader[3].ToString();
                 areaInv = reader[4].ToString();
                 cityInv = reader[5].ToString();
@@ -129,10 +144,11 @@ namespace Konvert
                 frameInv = reader[8].ToString();
                 structureInv = reader[9].ToString();
                 flatInv = reader[10].ToString();
+                */
             }
             catch
             {
-                idInv = 0;
+                Variables.ID = 0;
             }
             reader.Close();
             DBClose(); // закрываем базу данных
@@ -140,12 +156,12 @@ namespace Konvert
         ///
         /// Поиск совпадений по названию организации
         /// 
-        public void CoincidenceFind()
+        public static void CoincidenceFind()
         {
             ///
             /// Убираем пробелы в начале и конце RecipientTextBox
             /// 
-            using SqlDataAdapter dataAdapter = new("SELECT Firm FROM [Recipient] WHERE Firm = N'" + firmInv.Trim() + "'", sqlConnection);
+            using SqlDataAdapter dataAdapter = new("SELECT Firm FROM [Recipient] WHERE Firm = N'" + Variables.Firm.Trim() + "'", sqlConnection);
             DataTable table = new();
             dataAdapter.Fill(table);
             ///
@@ -166,13 +182,25 @@ namespace Konvert
                     /// 
                     DBOpen();
 
-                    using (SqlCommand command = new("SELECT * FROM [Recipient] WHERE Firm = '" + firmInv.Trim() + "'", sqlConnection))
+                    using (SqlCommand command = new("SELECT * FROM [Recipient] WHERE Firm = '" + Variables.Firm.Trim() + "'", sqlConnection))
                     {
                         SqlDataReader reader = command.ExecuteReader();
                         reader.Read();
                         ///
                         ///При нахождении совпадений Получателя выводит данные в переменные
                         ///
+                        Variables.ID = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
+                        Variables.Firm = reader[1].ToString();
+                        Variables.Index = Convert.ToInt32(reader[2], CultureInfo.CurrentCulture);
+                        Variables.Region = reader[3].ToString();
+                        Variables.Area = reader[4].ToString();
+                        Variables.City = reader[5].ToString();
+                        Variables.Street = reader[6].ToString();
+                        Variables.Home = reader[7].ToString();
+                        Variables.Frame = reader[8].ToString();
+                        Variables.Structure = reader[9].ToString();
+                        Variables.Flat = reader[10].ToString();
+                        /*
                         idInv = reader.GetInt32(0);
                         firmInv = reader.GetString(1).ToString();
                         indexInv = reader.GetInt32(2);
@@ -184,6 +212,7 @@ namespace Konvert
                         frameInv = reader.GetString(8).ToString();
                         structureInv = reader.GetString(9).ToString();
                         flatInv = reader.GetString(10).ToString();
+                        */
                         reader.Close();
                     }
                     DBClose();
@@ -196,7 +225,7 @@ namespace Konvert
         ///
         /// Загрузка Id в массив
         /// 
-        public void DBAddArray()
+        public static void DBAddArray()
         {
             using SqlCommand command = sqlConnection.CreateCommand();
 
