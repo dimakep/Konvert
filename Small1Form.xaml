@@ -47,7 +47,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBox x:Name="Line1" Text="ООО ``ГИПАР``" 
-                         Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" Margin="57,0,0,0" BorderThickness="0,0,0,0"/>
+                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" />
                 <TextBox x:Name="Line2" Text="Смоленская обл., г. Вязьма" 
                      Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="2" Grid.Column="1" Padding="0,0,0,0"/>
                 <TextBox x:Name="Line3" Text="ул. Репина д.16 оф.4" 

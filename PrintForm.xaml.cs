@@ -17,7 +17,7 @@ namespace Konvert
     public partial class PrintForm : Window
     {
         //private readonly Inventory Inventory = new(); // Подключение класса Inventory
-        int envelope_format;
+        int envelopeFormat = 1;
 
         public PrintForm()
         {
@@ -54,7 +54,7 @@ namespace Konvert
         {
             
             Variables.Firm = FirmBox.Text;
-            Preview_Form preview_Form = new(envelope_format);
+            Preview_Form preview_Form = new(envelopeFormat);
             _ = preview_Form.ShowDialog();
             /*
             if ((bool)BigTab.IsChecked)
@@ -84,17 +84,17 @@ namespace Konvert
         private void Small1Tab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Маленький конверт.jpg", UriKind.Absolute));
-            envelope_format = 1;
+            envelopeFormat = 1;
         }
         private void Small2Tab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
-            envelope_format = 2;
+            envelopeFormat = 2;
         }
         private void BigTab_Click(object sender, RoutedEventArgs e)
         {
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
-            envelope_format = 3;
+            envelopeFormat = 3;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
