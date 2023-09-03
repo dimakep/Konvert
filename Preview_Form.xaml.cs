@@ -87,13 +87,13 @@ namespace Konvert
                     lineBox[4].Text = "КОМУ";
                     lineBox[4].BorderThickness = new Thickness(0);
                     Canvas.SetLeft(lineBox[4], px * 11);
-                    Canvas.SetTop(lineBox[4], px * (small1[0] + small1[4]));
+                    Canvas.SetTop(lineBox[4], px * (small1[0] + small1[5]));
 
                     lineBox[5] = new();
                     lineBox[5].Text = "УЛИЦА";
                     lineBox[5].BorderThickness = new Thickness(0);
                     Canvas.SetLeft(lineBox[5], px * 11);
-                    Canvas.SetTop(lineBox[5], px * (small1[0] + small1[5]));
+                    Canvas.SetTop(lineBox[5], px * (small1[0] + small1[7]));
 
                     lineBox[6] = new();
                     lineBox[6].Text = "ДОМ";

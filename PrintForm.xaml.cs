@@ -55,7 +55,10 @@ namespace Konvert
             
             Variables.Firm = FirmBox.Text;
             Preview_Form preview_Form = new(envelopeFormat);
-            _ = preview_Form.ShowDialog();
+            preview_Form.ShowDialog();
+            //Small1Form small1Form = new();
+            //small1Form.Show();
+
             /*
             if ((bool)BigTab.IsChecked)
             {
