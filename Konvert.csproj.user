@@ -10,7 +10,7 @@
     <Compile Update="MessageBox1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Preview_Form.xaml.cs">
+    <Compile Update="PreviewForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -26,7 +26,7 @@
     <Page Update="MessageBox2.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Preview_Form.xaml">
+    <Page Update="PreviewForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Small1Form.xaml">

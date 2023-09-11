@@ -17,7 +17,7 @@ namespace Konvert
     public partial class PrintForm : Window
     {
         //private readonly Inventory Inventory = new(); // Подключение класса Inventory
-        int envelopeFormat = 1;
+        private int envelopeFormat = 1;
 
         public PrintForm()
         {
@@ -52,10 +52,12 @@ namespace Konvert
         }
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
-            
             Variables.Firm = FirmBox.Text;
             Preview_Form preview_Form = new(envelopeFormat);
             preview_Form.ShowDialog();
+
+            //Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Firm = N'" + Variables.Firm + "'";
+            //Inventory.FindInTable();
             //Small1Form small1Form = new();
             //small1Form.Show();
 
