@@ -5,9 +5,6 @@ using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Controls;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Konvert
 {
@@ -53,38 +50,8 @@ namespace Konvert
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             Variables.Firm = FirmBox.Text;
-            Preview_Form preview_Form = new(envelopeFormat);
-            preview_Form.ShowDialog();
-
-            //Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Firm = N'" + Variables.Firm + "'";
-            //Inventory.FindInTable();
-            //Small1Form small1Form = new();
-            //small1Form.Show();
-
-            /*
-            if ((bool)BigTab.IsChecked)
-            {
-                BigForm BigForm = new(Inventory.firmInv, Inventory.indexInv, Inventory.regionInv,
-                    Inventory.areaInv, Inventory.cityInv, Inventory.streetInv, Inventory.homeInv,
-                    Inventory.frameInv, Inventory.structureInv, Inventory.flatInv, PrinterNameBox.Text);
-                _ = BigForm.ShowDialog();
-
-            }
-            if ((bool)Small1Tab.IsChecked)
-            {
-                Small1Form small1Form = new(Inventory.firmInv, Inventory.indexInv, Inventory.regionInv,
-                    Inventory.areaInv, Inventory.cityInv, Inventory.streetInv, Inventory.homeInv,
-                    Inventory.frameInv, Inventory.structureInv, Inventory.flatInv, PrinterNameBox.Text);
-                _ = small1Form.ShowDialog();
-            }
-            if ((bool)Small2Tab.IsChecked)
-            {
-                Small2Form small2Form = new(Inventory.firmInv, Inventory.indexInv, Inventory.regionInv,
-                    Inventory.areaInv, Inventory.cityInv, Inventory.streetInv, Inventory.homeInv,
-                    Inventory.frameInv, Inventory.structureInv, Inventory.flatInv, PrinterNameBox.Text);
-                _ = small2Form.ShowDialog();
-            }
-            */
+            Preview_Form previewForm = new(envelopeFormat);
+            previewForm.ShowDialog();
         }
         private void Small1Tab_Click(object sender, RoutedEventArgs e)
         {

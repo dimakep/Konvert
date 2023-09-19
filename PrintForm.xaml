@@ -54,17 +54,21 @@
                 Margin="4"
                 Content="Маленький конверт 1"
                 IsChecked="True"
-                Style="{StaticResource MaterialDesignTabRadioButton}" />
+                Style="{StaticResource MaterialDesignTabRadioButton}" 
+                />
             <RadioButton x:Name="Small2Tab" Click="Small2Tab_Click"
                 Margin="4"
                 Content="Маленький конверт 2"
                 IsChecked="False"
-                Style="{StaticResource MaterialDesignTabRadioButton}" />
+                Style="{StaticResource MaterialDesignTabRadioButton}"
+                />
             <RadioButton x:Name="BigTab" Click="BigTab_Click"
                 Margin="4"
                 Content="Большой конверт"
                 IsChecked="False"
-                Style="{StaticResource MaterialDesignTabRadioButton}" RenderTransformOrigin="0.5,0.5" />
+                Style="{StaticResource MaterialDesignTabRadioButton}"
+                 />
+            
         </StackPanel>
         <Image x:Name="ImageKonvert" 
                HorizontalAlignment="Stretch" Height="Auto" Width="Auto" Source="/Resources/Маленький конверт.jpg" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
