@@ -13,7 +13,6 @@ namespace Konvert
     /// </summary>
     public partial class PrintForm : Window
     {
-        //private readonly Inventory Inventory = new(); // Подключение класса Inventory
         private int envelopeFormat = 1;
 
         public PrintForm()
@@ -49,6 +48,7 @@ namespace Konvert
         }
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
+            Variables.Printer = PrinterNameBox.Text;
             Variables.Firm = FirmBox.Text;
             Preview_Form previewForm = new(envelopeFormat);
             previewForm.ShowDialog();

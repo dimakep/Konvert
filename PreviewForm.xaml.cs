@@ -16,9 +16,9 @@ namespace Konvert
     {
         private Canvas PrintBox;
         private readonly double px = 37.795275591;
-        private readonly double[] small1 = { 1.1, 0.5, 1, 1.5, 3.7, 4.7, 5.2, 6.25, 6.8, 7.35, 7.9};
-        private readonly double[] small2 = { 0.7, 0.7, 1.4, 2.1, 4.2, 5.4, 6, 8.1, 8.8};
-        private readonly double[] big = { 2, 0.7, 1.4, 2.7, 7.6, 8.9, 10.3, 10.9, 12.2, 14.5 };
+        private readonly double[] small1 = { 1, 0.5, 1, 1.7, 3.7, 4.7, 5.2, 6.25, 6.8, 7.35, 8.1};
+        private readonly double[] small2 = { 0.7, 0.6, 1.3, 1.9, 4, 5.4, 6, 7.2, 7.9};
+        private readonly double[] big = { 1.7, 0.7, 1.4, 2.7, 7.6, 8.9, 10.3, 10.9, 11.6 };
         private readonly TextBox[] lineBox = new TextBox[14];
         public Preview_Form(int envelopeFormat)
         {
@@ -86,61 +86,61 @@ namespace Konvert
             lineBox[4] = new();
             lineBox[4].Text = Variables.Firm;
             lineBox[4].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[4], px * 11);
+            Canvas.SetLeft(lineBox[4], px * 11.6);
             Canvas.SetTop(lineBox[4], px * (small1[0] + small1[4]));
 
             lineBox[5] = new();
             lineBox[5].Text = Variables.Street;
             lineBox[5].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[5], px * 11);
+            Canvas.SetLeft(lineBox[5], px * 11.6);
             Canvas.SetTop(lineBox[5], px * (small1[0] + small1[5]));
 
             lineBox[6] = new();
             lineBox[6].Text = Variables.Home;
             lineBox[6].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[6], px * 10);
+            Canvas.SetLeft(lineBox[6], px * 11);
             Canvas.SetTop(lineBox[6], px * (small1[0] + small1[6]));
-
+           
             lineBox[7] = new();
             lineBox[7].Text = Variables.Frame;
             lineBox[7].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[7], px * 12.8);
+            Canvas.SetLeft(lineBox[7], px * 14);
             Canvas.SetTop(lineBox[7], px * (small1[0] + small1[6]));
 
             lineBox[8] = new();
             lineBox[8].Text = Variables.Structure;
             lineBox[8].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[8], px * 15.4);
+            Canvas.SetLeft(lineBox[8], px * 16.5);
             Canvas.SetTop(lineBox[8], px * (small1[0] + small1[6]));
 
             lineBox[9] = new();
             lineBox[9].Text = Variables.Flat;
             lineBox[9].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[9], px * 17.8);
+            Canvas.SetLeft(lineBox[9], px * 19.1);
             Canvas.SetTop(lineBox[9], px * (small1[0] + small1[6]));
 
             lineBox[10] = new();
             lineBox[10].Text = Variables.City;
             lineBox[10].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[10], px * 12);
+            Canvas.SetLeft(lineBox[10], px * 13.5);
             Canvas.SetTop(lineBox[10], px * (small1[0] + small1[7]));
 
             lineBox[11] = new();
             lineBox[11].Text = Variables.Area;
             lineBox[11].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[11], px * 11);
+            Canvas.SetLeft(lineBox[11], px * 12);
             Canvas.SetTop(lineBox[11], px * (small1[0] + small1[8]));
 
             lineBox[12] = new();
             lineBox[12].Text = Variables.Region;
             lineBox[12].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[12], px * 12);
+            Canvas.SetLeft(lineBox[12], px * 13);
             Canvas.SetTop(lineBox[12], px * (small1[0] + small1[9]));
 
             lineBox[13] = new();
             lineBox[13].Text = Convert.ToString(Variables.Index);
             lineBox[13].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[13], px * 10);
+            Canvas.SetLeft(lineBox[13], px * 11.5);
             Canvas.SetTop(lineBox[13], px * (small1[0] + small1[10]));
 
             PrintBox.Children.Add(lineBox[0]);
@@ -208,10 +208,11 @@ namespace Konvert
             lineBox[3] = new();
             lineBox[3].Text = "215110";
             lineBox[3].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[3], px * 1.5);
+            Canvas.SetLeft(lineBox[3], px * 6);
             Canvas.SetTop(lineBox[3], px * (small2[0] + small2[3]));
 
             lineBox[4] = new();
+            lineBox[4].VerticalContentAlignment = VerticalAlignment.Top;
             lineBox[4].Text = Variables.Firm;
             lineBox[4].BorderThickness = new Thickness(0);
             lineBox[4].Width = px * 10;
@@ -240,7 +241,7 @@ namespace Konvert
             lineBox[7] = new();
             lineBox[7].Text = $"{Variables.Home}  {Variables.Frame}  {Variables.Structure}  {Variables.Flat}";
             lineBox[7].BorderThickness = new Thickness(0);
-            Canvas.SetLeft(lineBox[7], px * 10.4);
+            Canvas.SetLeft(lineBox[7], px * 12);
             Canvas.SetTop(lineBox[7], px * (small2[0] + small2[7]));
 
             lineBox[8] = new();
@@ -316,6 +317,7 @@ namespace Konvert
             Canvas.SetTop(lineBox[3], px * (big[0] + big[3]));
 
             lineBox[4] = new();
+            lineBox[4].VerticalContentAlignment = VerticalAlignment.Top;
             lineBox[4].Text = Variables.Firm;
             lineBox[4].BorderThickness = new Thickness(0);
             lineBox[4].Width = px * 10;
