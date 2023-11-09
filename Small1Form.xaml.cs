@@ -10,12 +10,12 @@ namespace Konvert
     /// </summary>
     public partial class Small1Form : Window
     {
-        private string printerName;
-        private readonly Inventory KonvertBisness = new(); // Подключение класса Inventory
-        public Small1Form(string firm, int index, string region, string area, string city, string street, 
-            string home, string frame, string structure, string flat, string printer)
+        private readonly string printerName;
+
+        public Small1Form()
         {
             InitializeComponent();
+            /*
             RecipientBox.Text = firm;
             IndexBox.Text = Convert.ToString(index);
             RegionBox.Text = region;
@@ -27,7 +27,7 @@ namespace Konvert
             StructureBox.Text = structure;
             FlatBox.Text = flat;
             printerName = printer;
-
+            */
         }
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {

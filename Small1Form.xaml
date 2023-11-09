@@ -47,7 +47,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBox x:Name="Line1" Text="ООО ``ГИПАР``" 
-                         Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" Margin="57,0,0,0" BorderThickness="0,0,0,0"/>
+                     Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" />
                 <TextBox x:Name="Line2" Text="Смоленская обл., г. Вязьма" 
                      Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="2" Grid.Column="1" Padding="0,0,0,0"/>
                 <TextBox x:Name="Line3" Text="ул. Репина д.16 оф.4" 
@@ -55,25 +55,35 @@
                 <TextBox x:Name="Line4" Text="215110" 
                      Margin="21,1,0,0" BorderThickness="0,0,0,0" Grid.Row="4" Grid.Column="1"/>
                 <TextBox x:Name="RecipientBox" 
+                         Text="RECIPIENT"
                      Margin="0,0,0,0"  BorderThickness="0,0,0,0" MaxLines="2" MinLines="2" TextWrapping="WrapWithOverflow" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Padding="57,0,0,0" Grid.RowSpan="2"/>
                 <TextBox x:Name="StreetBox" 
+                         Text="STREET"
                      Margin="57,0,0,0" BorderThickness="0,0,0,0" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
                 <TextBox x:Name="HomeBox" 
+                         Text="HOME"
                      Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="FrameBox" 
+                         Text="FRAME"
                      Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="4" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="StructureBox" 
+                         Text="STRUC"
                      Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="5" Padding="0,0,0,0" TextAlignment="Center"/>
                 <TextBox x:Name="FlatBox" 
+                         Text="=FLAT"
                      Margin="15,0,0,0" BorderThickness="0,0,0,0" Grid.Row="9" Grid.Column="6" Padding="0,0,0,0" TextAlignment="Center"
                          Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBox x:Name="CityBox"
+                         Text="=CITY"
                      Margin="10,0,0,0" BorderThickness="0,0,0,0" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Padding="0,0,0,0"/>
                 <TextBox x:Name="AreaBox" 
+                         Text="AREA"
                      Margin="50,0,0,0" BorderThickness="0,0,0,0" Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
                 <TextBox x:Name="RegionBox" 
+                         Text="REGION"
                      Margin="85,0,0,0" BorderThickness="0,0,0,0" Grid.Row="13" Grid.Column="3" Grid.ColumnSpan="4" Padding="0,0,0,0"/>
                 <TextBox x:Name="IndexBox" 
+                         Text="215110"
                      Margin="30,0,0,0" BorderThickness="0,0,0,0" Grid.Row="14" Grid.Column="3" Padding="0,0,0,0" TextAlignment="Center" />
             </Grid>
 
