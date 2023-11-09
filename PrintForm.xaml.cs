@@ -5,9 +5,6 @@ using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Controls;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Konvert
 {
