@@ -11,10 +11,8 @@ namespace Konvert
 
     public partial class AddForm : Window
     {
-        //private readonly Inventory Inventory = new(); // Подключение класса Inventory
         private int positionDB;
         private string closeForm = "StartForm";
-        //Variables Variables = new Variables();
 
         public AddForm()
         {

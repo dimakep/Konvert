@@ -15,9 +15,7 @@ namespace Konvert
             "AttachDbFilename=" + path + "; Integrated Security=True;Connect Timeout=30");/// Connection String
         public static string sqlRequest; /// Строка SqlCommand для операций с БД
         public static int counterDB, btnclick; /// Переменная для Id и Index БД
-        //private static string firmInv, regionInv, areaInv, cityInv, streetInv, homeInv, frameInv, structureInv, flatInv; /// Переменные для занесения данных в БД
         public static List<int> idFromDB = new();
-        //private static string defaultPrinterName;
 
         public static void DBOpen()
         {
@@ -132,19 +130,6 @@ namespace Konvert
                 Variables.Frame = reader[8].ToString();
                 Variables.Structure = reader[9].ToString();
                 Variables.Flat = reader[10].ToString();
-                /*
-                idInv = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
-                firmInv = reader[1].ToString();
-                indexInv = Convert.ToInt32(reader[2], CultureInfo.CurrentCulture);
-                regionInv = reader[3].ToString();
-                areaInv = reader[4].ToString();
-                cityInv = reader[5].ToString();
-                streetInv = reader[6].ToString();
-                homeInv = reader[7].ToString();
-                frameInv = reader[8].ToString();
-                structureInv = reader[9].ToString();
-                flatInv = reader[10].ToString();
-                */
             }
             catch
             {
@@ -200,19 +185,6 @@ namespace Konvert
                         Variables.Frame = reader[8].ToString();
                         Variables.Structure = reader[9].ToString();
                         Variables.Flat = reader[10].ToString();
-                        /*
-                        idInv = reader.GetInt32(0);
-                        firmInv = reader.GetString(1).ToString();
-                        indexInv = reader.GetInt32(2);
-                        regionInv = reader.GetString(3).ToString();
-                        areaInv = reader.GetString(4).ToString();
-                        cityInv = reader.GetString(5).ToString();
-                        streetInv = reader.GetString(6).ToString();
-                        homeInv = reader.GetString(7).ToString();
-                        frameInv = reader.GetString(8).ToString();
-                        structureInv = reader.GetString(9).ToString();
-                        flatInv = reader.GetString(10).ToString();
-                        */
                         reader.Close();
                     }
                     DBClose();

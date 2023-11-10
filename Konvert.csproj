@@ -103,12 +103,6 @@
     <Compile Update="MessageBox2.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Small2Form .xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Small1Form.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -143,14 +137,6 @@
 
   <ItemGroup>
     <Page Update="MessageBox2.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Small2Form .xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Small1Form.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

@@ -11,12 +11,12 @@ namespace Konvert
     /// </summary>
     /// 
 
-    public partial class Preview_Form : Window
+    public partial class PreviewForm : Window
     {
         private string printerName;
         private readonly Canvas PrintBox = new();
         private readonly double px = 37.795275591;
-        public Preview_Form(int envelopeFormat)
+        public PreviewForm(int envelopeFormat)
         {
             Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Firm = N'" + Variables.Firm + "'";
             Inventory.FindInTable();
@@ -28,8 +28,8 @@ namespace Konvert
                     {
                         double[] e65_1 = { 1.2, 1.7, 2.2, 3.1, 5, 6, 6.5, 7.5, 8.1, 8.6, 9.4};
 
-                        PreviewForm.Width = (px * 22) + 10;
-                        PreviewForm.Height = (px * 11) + 90;
+                        Preview_Form.Width = (px * 22) + 10;
+                        Preview_Form.Height = (px * 11) + 90;
 
                         //Canvas PrintBox = new();
                         PrintBox = new();
@@ -162,8 +162,8 @@ namespace Konvert
                         if (Variables.Region != "") Variables.Region += " обл.";
                         if (Variables.Area != "") Variables.Area += " р-он";
 
-                        PreviewForm.Width = (px * 22) + 10;
-                        PreviewForm.Height = (px * 11) + 90;
+                        Preview_Form.Width = (px * 22) + 10;
+                        Preview_Form.Height = (px * 11) + 90;
                         PrintBox = new();
                         PrintBox.Width = px * 22;
                         PrintBox.Height = px * 11;
@@ -264,8 +264,8 @@ namespace Konvert
                         if (Variables.Area != "") Variables.Area += " р-он";
 
 
-                        PreviewForm.Width = (px * 23) + 10;
-                        PreviewForm.Height = (px * 16.2) + 90;
+                        Preview_Form.Width = (px * 23) + 10;
+                        Preview_Form.Height = (px * 16.2) + 90;
                         PrintBox = new();
                         PrintBox.Width = px * 23;
                         PrintBox.Height = px * 16.2;
