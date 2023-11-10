@@ -29,12 +29,6 @@
     <Page Update="Preview_Form.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Small1Form.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="BigForm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MessageBox1.xaml">
       <SubType>Designer</SubType>
     </Page>
