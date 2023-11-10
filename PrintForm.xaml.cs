@@ -49,8 +49,8 @@ namespace Konvert
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             Variables.Firm = FirmBox.Text;
-            Preview_Form preview_Form = new(envelopeFormat);
-            preview_Form.ShowDialog();
+            PreviewForm previewForm = new(envelopeFormat);
+            previewForm.ShowDialog();
         }
         private void Small1Tab_Click(object sender, RoutedEventArgs e)
         {
