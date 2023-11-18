@@ -44,7 +44,9 @@ namespace StartForm
         {
             var textBox = e.OriginalSource as TextBox;
             if (textBox != null)
+            {
                 textBox.SelectAll();
+            }
         }
     }
 }

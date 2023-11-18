@@ -13,7 +13,6 @@ namespace Konvert
 
     public partial class PreviewForm : Window
     {
-        private string printerName;
         private readonly Canvas PrintBox = new();
         private readonly double px = 37.795275591;
         public PreviewForm(int envelopeFormat)
@@ -366,7 +365,7 @@ namespace Konvert
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new();
-            printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
+            printDialog.PrintQueue = new PrintQueue(new PrintServer(), Variables.Printer);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
             printDialog.PrintTicket.PageResolution = new PageResolution(96, 96);
             Size pageSize = new(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
