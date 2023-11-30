@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Printing;
 
 namespace Konvert
@@ -13,7 +12,6 @@ namespace Konvert
 
     public partial class PreviewForm : Window
     {
-        private string printerName;
         private readonly Canvas PrintBox = new();
         private readonly double px = 37.795275591;
         public PreviewForm(int envelopeFormat)
@@ -26,16 +24,15 @@ namespace Konvert
             {
                 case 1: // 1 Маленький конверт E65
                     {
-                        double[] e65_1 = { 1.2, 1.7, 2.2, 3.1, 5, 6, 6.5, 7.5, 8.1, 8.6, 9.4};
+                        double[] e65_1 = { 0.9, 1.4, 1.9, 2.8, 4.7, 5.7, 6.2, 7.2, 7.8, 8.3, 9.1};
 
                         Preview_Form.Width = (px * 22) + 10;
                         Preview_Form.Height = (px * 11) + 90;
 
                         //Canvas PrintBox = new();
                         PrintBox = new();
-                        PrintBox.Width = px * 22;
-                        PrintBox.Height = px * 11;
-                        PrintBox.Background = Brushes.White;
+                        PrintBox.Width = 831.49606299;
+                        PrintBox.Height = 415.7480315;
                         Grid.SetColumn(PrintBox, 0);
                         Grid.SetRow(PrintBox, 0);
                         Grid.SetColumnSpan(PrintBox, 3);
@@ -75,6 +72,7 @@ namespace Konvert
                         lineBox[4] = new();
                         lineBox[4].Text = Variables.Firm;
                         lineBox[4].BorderThickness = new Thickness(0);
+                        lineBox[4].Width = px * 10;
                         lineBox[4].FontSize = 14;
                         Canvas.SetLeft(lineBox[4], px * 12);
                         Canvas.SetTop(lineBox[4], px * e65_1[4]);
@@ -157,7 +155,7 @@ namespace Konvert
                     }
                 case 2: // 2 Маленький конверт E65
                     {
-                        double[] e65_2 = { 1, 1.6, 2.2, 2.8, 4.9, 6.2, 6.9, 7.6, 8.1, 8.8};
+                        double[] e65_2 = { 0.7, 1.3, 1.9, 2.5, 4.6, 5.9, 6.6, 7.3, 7.8, 8.5};
 
                         if (Variables.Region != "") Variables.Region += " обл.";
                         if (Variables.Area != "") Variables.Area += " р-он";
@@ -165,9 +163,8 @@ namespace Konvert
                         Preview_Form.Width = (px * 22) + 10;
                         Preview_Form.Height = (px * 11) + 90;
                         PrintBox = new();
-                        PrintBox.Width = px * 22;
-                        PrintBox.Height = px * 11;
-                        PrintBox.Background = Brushes.White;
+                        PrintBox.Width = 831.49606299;
+                        PrintBox.Height = 415.7480315;
                         Grid.SetColumn(PrintBox, 0);
                         Grid.SetRow(PrintBox, 0);
                         Grid.SetColumnSpan(PrintBox, 3);
@@ -207,6 +204,7 @@ namespace Konvert
                         lineBox[4] = new();
                         lineBox[4].Text = Variables.Firm;
                         lineBox[4].BorderThickness = new Thickness(0);
+                        lineBox[4].Width = px * 10;
                         lineBox[4].FontSize = 14;
                         Canvas.SetLeft(lineBox[4], px * 11.5);
                         Canvas.SetTop(lineBox[4], px * e65_2[4]);
@@ -258,7 +256,7 @@ namespace Konvert
                     }
                 case 3: //Бльшой конверт C5
                     {
-                        double[] c5 = { 2, 2.6, 3.2, 4.4, 9.4, 10.8, 11.4, 12, 12.7, 13.4};
+                        double[] c5 = { 1.7, 2.3, 2.9, 4.4, 9.3, 10.8, 11.4, 11.9, 12.4, 13.2};
 
                         if (Variables.Region != "") Variables.Region += " обл.";
                         if (Variables.Area != "") Variables.Area += " р-он";
@@ -267,9 +265,8 @@ namespace Konvert
                         Preview_Form.Width = (px * 23) + 10;
                         Preview_Form.Height = (px * 16.2) + 90;
                         PrintBox = new();
-                        PrintBox.Width = px * 23;
-                        PrintBox.Height = px * 16.2;
-                        PrintBox.Background = Brushes.White;
+                        PrintBox.Width = 869.29133858;
+                        PrintBox.Height = 612.28346457;
                         Grid.SetColumn(PrintBox, 0);
                         Grid.SetRow(PrintBox, 0);
                         Grid.SetColumnSpan(PrintBox, 3);
@@ -366,7 +363,7 @@ namespace Konvert
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new();
-            printDialog.PrintQueue = new PrintQueue(new PrintServer(), printerName);
+            printDialog.PrintQueue = new PrintQueue(new PrintServer(), Variables.Printer);
             printDialog.PrintTicket.PageOrientation = PageOrientation.Landscape;
             printDialog.PrintTicket.PageResolution = new PageResolution(96, 96);
             Size pageSize = new(printDialog.PrintableAreaWidth, printDialog.PrintableAreaHeight);
