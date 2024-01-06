@@ -5,6 +5,8 @@ using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
 using System.Data.SqlClient;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace Konvert
 {
@@ -14,6 +16,7 @@ namespace Konvert
     public partial class PrintForm : Window
     {
         int envelopeFormat = 1;
+        public CollectionViewSource viewSource = new();
 
         public PrintForm()
         {
@@ -25,8 +28,9 @@ namespace Konvert
             DataSet dataSet = new();
             _ = adapter.Fill(dataSet, "Recipient");
             /// Создаем объект CollectionViewSource для привязки ComboBox к данным
-            CollectionViewSource viewSource = new();
+            //CollectionViewSource viewSource = new();
             viewSource.Source = dataSet.Tables["Recipient"].DefaultView;
+            viewSource.SortDescriptions.Add(new SortDescription("Firm", ListSortDirection.Ascending));
 
             /// Привязываем ComboBox к объекту CollectionViewSource
             FirmBox.ItemsSource = viewSource.View;
@@ -89,6 +93,8 @@ namespace Konvert
             StartForm startForm = new();
             startForm.Show();
         }
+
+ 
     }
 }
 
