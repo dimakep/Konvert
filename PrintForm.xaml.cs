@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace Konvert
 {
@@ -71,7 +72,6 @@ namespace Konvert
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
             envelopeFormat = 3;
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Получаем список доступных принтеров
@@ -87,14 +87,13 @@ namespace Konvert
             Variables.Printer = printServer.DefaultPrintQueue.Name;
             PrinterNameBox.SelectedItem = Variables.Printer;
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             StartForm startForm = new();
             startForm.Show();
         }
+    
 
- 
     }
 }
 
