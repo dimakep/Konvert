@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.IO;
 
 namespace Konvert
 {
@@ -27,6 +28,11 @@ namespace Konvert
             PrintForm printForm = new();
             printForm.Show();
             Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryLite.CreateBD();
         }
     }
 }

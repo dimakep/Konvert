@@ -41,5 +41,6 @@
         <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Height="48" Margin="0,0,38,0" Grid.Row="3">
             <Hyperlink FontSize="40" x:Name="HyperExit" Click="HyperExit_Click" Language="ru-ru" FontFamily="Times New Roman" FontWeight="Normal" Cursor="Hand" Foreground="#FFEBF50E" NavigateUri="HyperExit_Click()">Выход</Hyperlink>
         </TextBlock>
+        <Button Content="Button" HorizontalAlignment="Left" Height="24" Margin="49,56,0,0" Grid.Row="3" VerticalAlignment="Top" Width="179" Click="Button_Click"/>
     </Grid>
 </Window>
