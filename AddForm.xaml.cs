@@ -108,7 +108,7 @@ namespace Konvert
         private void IndexBox_GotFocus(object sender, RoutedEventArgs e)
         {
             Variables.Firm = FirmBox.Text;
-            Inventory.CoincidenceFind();
+            InventoryLite.CoincidenceFind();
             BoxFromDB();
         }
 
@@ -219,7 +219,7 @@ namespace Konvert
                 positionDB = 1;
                 Variables.ID = InventoryLite.idFromDB[positionDB - 1];
                 CounterDB();
-                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
+                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
                 InventoryLite.FindInTable();
                 BoxFromDB();
             }
@@ -236,10 +236,10 @@ namespace Konvert
                 }
                 else
                 {
-                    Variables.ID = Inventory.idFromDB[positionDB - 1];
+                    Variables.ID = InventoryLite.idFromDB[positionDB - 1];
                 }
                 CounterDB();
-                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
+                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
                 InventoryLite.FindInTable();
                 BoxFromDB();
             }
@@ -256,18 +256,25 @@ namespace Konvert
                 Variables.ID = InventoryLite.idFromDB[positionDB - 1];
             }
             CounterDB();
-            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
+            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
             InventoryLite.FindInTable();
             BoxFromDB();
         }
         private void BtnFForward_Click(object sender, RoutedEventArgs e)
         {
             positionDB = InventoryLite.idFromDB.Count;
-            CounterDB();
-            Variables.ID = InventoryLite.idFromDB[positionDB];
-            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
-            InventoryLite.FindInTable();
-            BoxFromDB();
+            if (Inventory.idFromDB.Count > 0)
+            {
+                CounterDB();
+                Variables.ID = InventoryLite.idFromDB[positionDB - 1];
+                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
+                InventoryLite.FindInTable();
+                BoxFromDB();
+            }
+            else
+            {
+                positionDB = 0;
+            }
         }
 
     }

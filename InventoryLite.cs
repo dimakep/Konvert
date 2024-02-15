@@ -20,7 +20,7 @@ namespace Konvert
 
         public static void DBOpen() ///Открыть базу данных
         {
-           sqlConnection.Open();
+            sqlConnection.Open();
         }
 
         public static void DBClose() ///Закрыть базу данных
@@ -139,36 +139,93 @@ namespace Konvert
         ///
         /// Поиск совпадений по названию организации
         /// 
-
-        public static void DBAddArray()
+        public static void CoincidenceFind()
         {
+            ///
+            /// Убираем пробелы в начале и конце RecipientTextBox
+
+            ///
+            ///Если нашел совпадение по Recipient
+            ///
             DBOpen();
-            //using SqlCommand command = sqlConnection.CreateCommand();
-            string sqlExpression = "SELECT COUNT(*) FROM Recipient";
-            SqliteCommand command = new(sqlExpression, sqlConnection);
-            object idFromDB = command.ExecuteScalar();
+            SqliteCommand command = sqlConnection.CreateCommand();
+            command.CommandText = "SELECT * FROM Recipient WHERE Firm = @Firm";
+            command.Parameters.AddWithValue("@Firm", Variables.Firm.Trim());
+
+            SqliteDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                const string message =
+                        "Такой получатель уже существует\nЗаменить данные о получателе?";
+                const string caption = "Внимание!!!";
+                MessageBox1 messageBox1 = new(caption, message);
+                messageBox1.ShowDialog();
+
+                if (messageBox1.DialogResult == true)
+                {
+                    ///
+                    /// Нажата Ok
+                    /// 
+                    //DBOpen();
+
+                    //using (SqlCommand command = new("SELECT * FROM [Recipient] WHERE Firm = '" + Variables.Firm.Trim() + "'"))
+                    {
+                        //SqlDataReader reader = command.ExecuteReader();
+                        reader.Read();
+                        ///
+                        ///При нахождении совпадений Получателя выводит данные в переменные
+                        ///
+                        Variables.ID = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
+                        Variables.Firm = reader[1].ToString();
+                        Variables.Index = Convert.ToInt32(reader[2], CultureInfo.CurrentCulture);
+                        Variables.Region = reader[3].ToString();
+                        Variables.Area = reader[4].ToString();
+                        Variables.City = reader[5].ToString();
+                        Variables.Street = reader[6].ToString();
+                        Variables.Home = reader[7].ToString();
+                        Variables.Frame = reader[8].ToString();
+                        Variables.Structure = reader[9].ToString();
+                        Variables.Flat = reader[10].ToString();
+                        reader.Close();
+                    }
+                    //DBClose();
+                    btnclick = 1;
+                }
+
+            }
             DBClose();
 
         }
+        
+        public static void DBAddArray()
+        {
+            using SqliteCommand command = sqlConnection.CreateCommand();
+
+            idFromDB.Clear();
+            command.CommandText = "SELECT Id FROM Recipient";
+            DBOpen();
+            using (IDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    idFromDB.Add(reader.GetInt32(0));
+                }
+            }
+            DBClose();
+        }
+
         public static void CreateBD()
         {
-            using (SqliteConnection connection = new SqliteConnection("Data Source=" + path))
-            {
-                connection.Open();
+           DBOpen();
 
-                SqliteCommand command = new SqliteCommand();
-                command.Connection = connection;
-                command.CommandText = "CREATE TABLE Recipient(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Firm TEXT NOT NULL, Indexs TEXT, Region TEXT, Area TEXT, City TEXT, Street TEXT, Home TEXT, Frame TEXT, Structure TEXT, Flat TEXT)";
-
-                //command.Connection = connection;
-                //command.CommandText = "CREATE TABLE Users(_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Name TEXT NOT NULL, Age INTEGER NOT NULL)";
-                //command.ExecuteNonQuery();
-
-                command.ExecuteNonQuery();
-
-                Console.WriteLine("Таблица Users создана");
-            }
+            SqliteCommand command = new();
+            command.Connection = sqlConnection;
+            command.CommandText = "CREATE TABLE Recipient(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Firm TEXT NOT NULL, Indexs INT, Region TEXT, Area TEXT, City TEXT, Street TEXT, Home TEXT, Frame TEXT, Structure TEXT, Flat TEXT)";
+            command.ExecuteNonQuery();
+            Console.WriteLine("Таблица Users создана");
         }
+
 
     }
 }

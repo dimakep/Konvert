@@ -30,9 +30,5 @@ namespace Konvert
             Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            InventoryLite.CreateBD();
-        }
     }
 }

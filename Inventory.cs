@@ -90,7 +90,7 @@ namespace Konvert
         /// 
         public static void DelInTable()
         {
-            using SqlCommand command = new("DELETE FROM Recipient WHERE Firm = N'" + Variables.Firm + "'", sqlConnection);
+            using SqlCommand command = new("DELETE FROM Recipient WHERE Firm = '" + Variables.Firm + "'", sqlConnection);
             try
             {
                 DBOpen();
