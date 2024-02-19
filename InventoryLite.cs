@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Windows;
-using Microsoft.Data.Sqlite;
+using System.Data.SQLite;
 
 namespace Konvert
 {
     class InventoryLite
     {
-        private static readonly string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB.db");
-        public static readonly SqliteConnection sqlConnection = new("Data Source = " + path);
+        public static readonly string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB.db");
+        public static readonly SQLiteConnection sqlConnection = new("Data Source = " + path);
+        public static readonly string connectionString = "Data Source = " + path;
         public static string sqlRequest; /// Строка SqlCommand для операций с БД
         public static int counterDB, btnclick; /// Переменная для Id и Index БД
         public static List<int> idFromDB = new();
@@ -32,7 +29,7 @@ namespace Konvert
         ///
         public static void MaxId()
         {
-            SqliteCommand command = new("SELECT COUNT(Id) FROM Recipient", sqlConnection);
+            SQLiteCommand command = new("SELECT COUNT(Id) FROM Recipient", sqlConnection);
             DBOpen();
             counterDB = (int)command.ExecuteScalar();
             DBClose();
@@ -43,7 +40,7 @@ namespace Konvert
         public static void AddInTable()
         {
             DBOpen();
-            SqliteCommand command = new("INSERT INTO Recipient (Firm, Indexs, Region, Area, City, Street, Home, Frame, Structure, Flat)" +
+            SQLiteCommand command = new("INSERT INTO Recipient (Firm, Indexs, Region, Area, City, Street, Home, Frame, Structure, Flat)" +
                     " VALUES (@Firm, @Index, @Region, @Area, @City, @Street, @Home, @Frame, @Structure, @Flat)", sqlConnection);
             command.Parameters.AddWithValue("@Firm", Variables.Firm);
             command.Parameters.AddWithValue("@Index", Variables.Index);
@@ -64,7 +61,7 @@ namespace Konvert
         ///
         public static void UpdateInTable()
         {
-            using SqliteCommand command = new("UPDATE Recipient " +
+            using SQLiteCommand command = new("UPDATE Recipient " +
                 " SET [Firm] = @Firm, [Indexs] = @Index, [Region] = @Region, [Area] = @Area, [City] = @City, [Street] = @Street, " +
                 "[Home] = @Home, [Frame] = @Frame, [Structure] = @Structure, [Flat] = @Flat " +
                 "WHERE Id = '" + Variables.ID + "'", sqlConnection);
@@ -89,7 +86,7 @@ namespace Konvert
         /// 
         public static void DelInTable()
         {
-            using SqliteCommand command = new("DELETE FROM Recipient WHERE Firm = N'" + Variables.Firm + "'", sqlConnection);
+            using SQLiteCommand command = new("DELETE FROM Recipient WHERE Firm = N'" + Variables.Firm + "'", sqlConnection);
             try
             {
                 DBOpen();
@@ -109,9 +106,9 @@ namespace Konvert
         public static void FindInTable()
         {
             Console.WriteLine(Variables.Firm);
-            SqliteCommand command = new(sqlRequest, sqlConnection);
+            SQLiteCommand command = new(sqlRequest, sqlConnection);
             DBOpen(); // Открываем базу данных
-            SqliteDataReader reader = command.ExecuteReader();
+            SQLiteDataReader reader = command.ExecuteReader();
             try
             {
                 reader.Read();
@@ -148,11 +145,11 @@ namespace Konvert
             ///Если нашел совпадение по Recipient
             ///
             DBOpen();
-            SqliteCommand command = sqlConnection.CreateCommand();
+            SQLiteCommand command = sqlConnection.CreateCommand();
             command.CommandText = "SELECT * FROM Recipient WHERE Firm = @Firm";
             command.Parameters.AddWithValue("@Firm", Variables.Firm.Trim());
 
-            SqliteDataReader reader = command.ExecuteReader();
+            SQLiteDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
             {
@@ -200,7 +197,7 @@ namespace Konvert
         
         public static void DBAddArray()
         {
-            using SqliteCommand command = sqlConnection.CreateCommand();
+            using SQLiteCommand command = sqlConnection.CreateCommand();
 
             idFromDB.Clear();
             command.CommandText = "SELECT Id FROM Recipient";
@@ -219,9 +216,9 @@ namespace Konvert
         {
            DBOpen();
 
-            SqliteCommand command = new();
+            SQLiteCommand command = new();
             command.Connection = sqlConnection;
-            command.CommandText = "CREATE TABLE Recipient(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Firm TEXT NOT NULL, Indexs INT, Region TEXT, Area TEXT, City TEXT, Street TEXT, Home TEXT, Frame TEXT, Structure TEXT, Flat TEXT)";
+            command.CommandText = "CREATE TABLE Recipient(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Firm TEXT NOT NULL, Indexs INT NOT NULL, Region TEXT, Area TEXT, City TEXT, Street TEXT, Home TEXT, Frame TEXT, Structure TEXT, Flat TEXT)";
             command.ExecuteNonQuery();
             Console.WriteLine("Таблица Users создана");
         }

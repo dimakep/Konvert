@@ -42,7 +42,7 @@
         <ComboBox x:Name="PrinterNameBox" 
                   Style="{StaticResource MaterialDesignFilledComboBox}"
                   Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto"/>
-        <ComboBox x:Name="FirmBox" 
+        <ComboBox x:Name="FirmBox" SelectionChanged="FirmBox_SelectionChanged"
                   IsTextSearchEnabled="True" TextSearch.TextPath="Firm" StaysOpenOnEdit="True" IsEditable="True"
                   Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Выберите получателя"
                   Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto" Grid.Row="1"/>

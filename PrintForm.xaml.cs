@@ -4,10 +4,10 @@ using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
-using System.Data.SqlClient;
-using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using System.Data.SQLite;
+
 
 namespace Konvert
 {
@@ -18,20 +18,20 @@ namespace Konvert
     {
         int envelopeFormat = 1;
         public CollectionViewSource viewSource = new();
+        
 
         public PrintForm()
         {
             InitializeComponent();
             string query = "SELECT Id, Firm FROM Recipient";
-            using SqlConnection connection = new(Inventory.connectionString);
-            SqlCommand command = new(query, connection);
-            SqlDataAdapter adapter = new(command);
+            using SQLiteConnection connection = new(InventoryLite.connectionString);
+            SQLiteCommand command = new(query, connection);
+            SQLiteDataAdapter adapter = new(command);
             DataSet dataSet = new();
             _ = adapter.Fill(dataSet, "Recipient");
             /// Создаем объект CollectionViewSource для привязки ComboBox к данным
-            //CollectionViewSource viewSource = new();
+            CollectionViewSource viewSource = new();
             viewSource.Source = dataSet.Tables["Recipient"].DefaultView;
-            viewSource.SortDescriptions.Add(new SortDescription("Firm", ListSortDirection.Ascending));
 
             /// Привязываем ComboBox к объекту CollectionViewSource
             FirmBox.ItemsSource = viewSource.View;
@@ -92,8 +92,11 @@ namespace Konvert
             StartForm startForm = new();
             startForm.Show();
         }
-    
 
+        private void FirmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
     }
 }
 
