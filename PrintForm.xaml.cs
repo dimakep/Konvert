@@ -4,8 +4,6 @@ using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
-using System.Collections.Generic;
-using System.Windows.Controls;
 using System.Data.SQLite;
 
 
@@ -18,7 +16,7 @@ namespace Konvert
     {
         int envelopeFormat = 1;
         public CollectionViewSource viewSource = new();
-        
+        private string closeForm = "StartForm";
 
         public PrintForm()
         {
@@ -41,14 +39,12 @@ namespace Konvert
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            StartForm startForm = new();
-            startForm.Show();
+            
             Close();
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddForm addForm = new();
-            addForm.Show();
+            closeForm = "AddForm";
             Close();
         }
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
@@ -89,13 +85,21 @@ namespace Konvert
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            StartForm startForm = new();
-            startForm.Show();
-        }
+            switch (closeForm)
+            {
+                case "StartForm":
+                    StartForm startForm = new();
+                    startForm.Show();
+                    break;
 
-        private void FirmBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
+                case "AddForm":
+                    AddForm addForm = new();
+                    addForm.Show();
+                    break;
+                default:
+                    break;
+            }
+            e.Cancel = false;
         }
     }
 }

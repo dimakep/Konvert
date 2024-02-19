@@ -27,23 +27,23 @@ namespace Konvert
         {
             if (FirmBox.Text != "")
             {
-                Inventory.DBAddArray();
+                InventoryLite.DBAddArray();
                 MessageBox1 messageBox1 = new("ВНИМАНИЕ!", "Сохранить изменения?");
                 messageBox1.ShowDialog();
                 if (messageBox1.DialogResult == true)
                 {
                     Variables.Firm = FirmBox.Text;
-                    Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + Variables.Firm + "'";
-                    Inventory.FindInTable();
+                    InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + Variables.Firm + "'";
+                    InventoryLite.FindInTable();
                     if (Variables.ID == 0)
                     {
                         DBFromBox();
-                        Inventory.AddInTable();
+                        InventoryLite.AddInTable();
                     }
                     else
                     {
                         DBFromBox();
-                        Inventory.UpdateInTable();
+                        InventoryLite.UpdateInTable();
                     }
                     e.Cancel = false;
                 }
@@ -263,18 +263,11 @@ namespace Konvert
         private void BtnFForward_Click(object sender, RoutedEventArgs e)
         {
             positionDB = InventoryLite.idFromDB.Count;
-            if (Inventory.idFromDB.Count > 0)
-            {
-                CounterDB();
-                Variables.ID = InventoryLite.idFromDB[positionDB - 1];
-                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
-                InventoryLite.FindInTable();
-                BoxFromDB();
-            }
-            else
-            {
-                positionDB = 0;
-            }
+            CounterDB();
+            Variables.ID = InventoryLite.idFromDB[positionDB - 1];
+            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
+            InventoryLite.FindInTable();
+            BoxFromDB();
         }
 
     }
