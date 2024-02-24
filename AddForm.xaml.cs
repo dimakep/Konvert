@@ -27,23 +27,23 @@ namespace Konvert
         {
             if (FirmBox.Text != "")
             {
-                Inventory.DBAddArray();
+                InventoryLite.DBAddArray();
                 MessageBox1 messageBox1 = new("ВНИМАНИЕ!", "Сохранить изменения?");
                 messageBox1.ShowDialog();
                 if (messageBox1.DialogResult == true)
                 {
                     Variables.Firm = FirmBox.Text;
-                    Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + Variables.Firm + "'";
-                    Inventory.FindInTable();
+                    InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + Variables.Firm + "'";
+                    InventoryLite.FindInTable();
                     if (Variables.ID == 0)
                     {
                         DBFromBox();
-                        Inventory.AddInTable();
+                        InventoryLite.AddInTable();
                     }
                     else
                     {
                         DBFromBox();
-                        Inventory.UpdateInTable();
+                        InventoryLite.UpdateInTable();
                     }
                     e.Cancel = false;
                 }
@@ -88,8 +88,8 @@ namespace Konvert
         }
         private void CounterDB()
         {
-            Inventory.DBAddArray();
-            TextBoxGrid.Text = positionDB + " / " + Inventory.idFromDB.Count;
+            InventoryLite.DBAddArray();
+            TextBoxGrid.Text = positionDB + " / " + InventoryLite.idFromDB.Count;
         }
         ///
         /// Проверка ввода в поле индекс только цифр
@@ -108,7 +108,7 @@ namespace Konvert
         private void IndexBox_GotFocus(object sender, RoutedEventArgs e)
         {
             Variables.Firm = FirmBox.Text;
-            Inventory.CoincidenceFind();
+            InventoryLite.CoincidenceFind();
             BoxFromDB();
         }
 
@@ -165,14 +165,14 @@ namespace Konvert
         private void BtnAdd_Click(object sender, RoutedEventArgs e) /// Добавление строки в базу данных
         {
             DBFromBox();
-            Inventory.AddInTable();
+            InventoryLite.AddInTable();
             ClearBox(); ///Очистка TextBoxs
             positionDB = 0;
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e) /// Изменение строки в базе данных
         {
             DBFromBox();
-            Inventory.UpdateInTable();
+            InventoryLite.UpdateInTable();
             ClearBox();
             positionDB = 0;
         }
@@ -186,7 +186,7 @@ namespace Konvert
                 {
                     Variables.ID = positionDB;
                     Variables.Firm = FirmBox.Text;
-                    Inventory.DelInTable();
+                    InventoryLite.DelInTable();
                     ClearBox();
                     CounterDB();
                 }
@@ -217,10 +217,10 @@ namespace Konvert
             if (positionDB >= 1)
             {
                 positionDB = 1;
-                Variables.ID = Inventory.idFromDB[positionDB - 1];
+                Variables.ID = InventoryLite.idFromDB[positionDB - 1];
                 CounterDB();
-                Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
-                Inventory.FindInTable();
+                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
+                InventoryLite.FindInTable();
                 BoxFromDB();
             }
         }
@@ -232,41 +232,41 @@ namespace Konvert
                 if (positionDB < 1)
                 {
                     positionDB = 1;
-                    Variables.ID = Inventory.idFromDB[positionDB - 1];
+                    Variables.ID = InventoryLite.idFromDB[positionDB - 1];
                 }
                 else
                 {
-                    Variables.ID = Inventory.idFromDB[positionDB - 1];
+                    Variables.ID = InventoryLite.idFromDB[positionDB - 1];
                 }
                 CounterDB();
-                Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
-                Inventory.FindInTable();
+                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
+                InventoryLite.FindInTable();
                 BoxFromDB();
             }
         }
         private void BtnForward_Click(object sender, RoutedEventArgs e)
         {
             positionDB++;
-            if (positionDB > Inventory.idFromDB.Count)
+            if (positionDB > InventoryLite.idFromDB.Count)
             {
-                positionDB = Inventory.idFromDB.Count;
+                positionDB = InventoryLite.idFromDB.Count;
             }
             else
             {
-                Variables.ID = Inventory.idFromDB[positionDB - 1];
+                Variables.ID = InventoryLite.idFromDB[positionDB - 1];
             }
             CounterDB();
-            Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
-            Inventory.FindInTable();
+            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
+            InventoryLite.FindInTable();
             BoxFromDB();
         }
         private void BtnFForward_Click(object sender, RoutedEventArgs e)
         {
-            positionDB = Inventory.idFromDB.Count;
+            positionDB = InventoryLite.idFromDB.Count;
             CounterDB();
-            Variables.ID = Inventory.idFromDB[positionDB - 1];
-            Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
-            Inventory.FindInTable();
+            Variables.ID = InventoryLite.idFromDB[positionDB - 1];
+            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
+            InventoryLite.FindInTable();
             BoxFromDB();
         }
 

@@ -4,7 +4,8 @@ using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using System.Printing;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
+
 
 namespace Konvert
 {
@@ -14,14 +15,16 @@ namespace Konvert
     public partial class PrintForm : Window
     {
         int envelopeFormat = 1;
+        public CollectionViewSource viewSource = new();
+        private string closeForm = "StartForm";
 
         public PrintForm()
         {
             InitializeComponent();
             string query = "SELECT Id, Firm FROM Recipient";
-            using SqlConnection connection = new(Inventory.connectionString);
-            SqlCommand command = new(query, connection);
-            SqlDataAdapter adapter = new(command);
+            using SQLiteConnection connection = new(InventoryLite.connectionString);
+            SQLiteCommand command = new(query, connection);
+            SQLiteDataAdapter adapter = new(command);
             DataSet dataSet = new();
             _ = adapter.Fill(dataSet, "Recipient");
             /// Создаем объект CollectionViewSource для привязки ComboBox к данным
@@ -36,14 +39,12 @@ namespace Konvert
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            StartForm startForm = new();
-            startForm.Show();
+            
             Close();
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddForm addForm = new();
-            addForm.Show();
+            closeForm = "AddForm";
             Close();
         }
         private void BtnPrint_Click(object sender, RoutedEventArgs e)
@@ -67,7 +68,6 @@ namespace Konvert
             ImageKonvert.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Большой конверт.jpg", UriKind.Absolute));
             envelopeFormat = 3;
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Получаем список доступных принтеров
@@ -83,11 +83,23 @@ namespace Konvert
             Variables.Printer = printServer.DefaultPrintQueue.Name;
             PrinterNameBox.SelectedItem = Variables.Printer;
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            StartForm startForm = new();
-            startForm.Show();
+            switch (closeForm)
+            {
+                case "StartForm":
+                    StartForm startForm = new();
+                    startForm.Show();
+                    break;
+
+                case "AddForm":
+                    AddForm addForm = new();
+                    addForm.Show();
+                    break;
+                default:
+                    break;
+            }
+            e.Cancel = false;
         }
     }
 }

@@ -16,8 +16,8 @@ namespace Konvert
         private readonly double px = 37.795275591;
         public PreviewForm(int envelopeFormat)
         {
-            Inventory.sqlRequest = "SELECT * FROM Recipient WHERE Firm = N'" + Variables.Firm + "'";
-            Inventory.FindInTable();
+            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Firm = N'" + Variables.Firm + "'";
+            InventoryLite.FindInTable();
             InitializeComponent();
             TextBox[] lineBox = new TextBox[14];
             switch (envelopeFormat)
