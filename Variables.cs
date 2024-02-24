@@ -2,7 +2,7 @@
 {
     public static class Variables
     {
-        public static int ID { get; set; }
+        public static int Id { get; set; }
         public static string Firm { get; set; }
         public static int Index { get; set; }
         public static string Region { get; set; }

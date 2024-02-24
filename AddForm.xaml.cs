@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Globalization;
 
-
 namespace Konvert
 
 {
@@ -35,7 +34,7 @@ namespace Konvert
                     Variables.Firm = FirmBox.Text;
                     InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Firm = '" + Variables.Firm + "'";
                     InventoryLite.FindInTable();
-                    if (Variables.ID == 0)
+                    if (Variables.Id == 0)
                     {
                         DBFromBox();
                         InventoryLite.AddInTable();
@@ -184,7 +183,7 @@ namespace Konvert
                 messageBox1.ShowDialog();
                 if (messageBox1.DialogResult == true)
                 {
-                    Variables.ID = positionDB;
+                    Variables.Id = positionDB;
                     Variables.Firm = FirmBox.Text;
                     InventoryLite.DelInTable();
                     ClearBox();
@@ -217,9 +216,9 @@ namespace Konvert
             if (positionDB >= 1)
             {
                 positionDB = 1;
-                Variables.ID = InventoryLite.idFromDB[positionDB - 1];
+                Variables.Id = InventoryLite.idFromDB[positionDB - 1];
                 CounterDB();
-                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
+                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.Id + "'";
                 InventoryLite.FindInTable();
                 BoxFromDB();
             }
@@ -232,14 +231,14 @@ namespace Konvert
                 if (positionDB < 1)
                 {
                     positionDB = 1;
-                    Variables.ID = InventoryLite.idFromDB[positionDB - 1];
+                    Variables.Id = InventoryLite.idFromDB[positionDB - 1];
                 }
                 else
                 {
-                    Variables.ID = InventoryLite.idFromDB[positionDB - 1];
+                    Variables.Id = InventoryLite.idFromDB[positionDB - 1];
                 }
                 CounterDB();
-                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
+                InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.Id + "'";
                 InventoryLite.FindInTable();
                 BoxFromDB();
             }
@@ -253,10 +252,10 @@ namespace Konvert
             }
             else
             {
-                Variables.ID = InventoryLite.idFromDB[positionDB - 1];
+                Variables.Id = InventoryLite.idFromDB[positionDB - 1];
             }
             CounterDB();
-            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE ID = '" + Variables.ID + "'";
+            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.Id + "'";
             InventoryLite.FindInTable();
             BoxFromDB();
         }
@@ -264,8 +263,8 @@ namespace Konvert
         {
             positionDB = InventoryLite.idFromDB.Count;
             CounterDB();
-            Variables.ID = InventoryLite.idFromDB[positionDB - 1];
-            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.ID + "'";
+            Variables.Id = InventoryLite.idFromDB[positionDB - 1];
+            InventoryLite.sqlRequest = "SELECT * FROM Recipient WHERE Id = '" + Variables.Id + "'";
             InventoryLite.FindInTable();
             BoxFromDB();
         }
