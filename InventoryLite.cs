@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Data.SQLite;
+using System.IO;
 
 namespace Konvert
 {
@@ -15,9 +16,17 @@ namespace Konvert
         public static int counterDB, btnclick; /// Переменная для Id и Index БД
         public static List<int> idFromDB = new();
 
+
         public static void DBOpen() ///Открыть базу данных
         {
-            sqlConnection.Open();
+            if (!File.Exists(path))
+            {
+                CreateBD();
+            }
+            else
+            {
+                sqlConnection.Open();
+            }
         }
 
         public static void DBClose() ///Закрыть базу данных
@@ -64,7 +73,7 @@ namespace Konvert
             using SQLiteCommand command = new("UPDATE Recipient " +
                 " SET [Firm] = @Firm, [Indexs] = @Index, [Region] = @Region, [Area] = @Area, [City] = @City, [Street] = @Street, " +
                 "[Home] = @Home, [Frame] = @Frame, [Structure] = @Structure, [Flat] = @Flat " +
-                "WHERE Id = '" + Variables.ID + "'", sqlConnection);
+                "WHERE Id = '" + Variables.Id + "'", sqlConnection);
             DBOpen(); // Открываем базу данных для добавление данных
             /// Привязка данных к колонкам таблицы
 
@@ -114,7 +123,7 @@ namespace Konvert
                 reader.Read();
                 /// Привязка данных к колонкам таблицы
                 /// 
-                Variables.ID = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
+                Variables.Id = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
                 Variables.Firm = reader[1].ToString();
                 Variables.Index = Convert.ToInt32(reader[2], CultureInfo.CurrentCulture);
                 Variables.Region = reader[3].ToString();
@@ -128,7 +137,7 @@ namespace Konvert
             }
             catch
             {
-                Variables.ID = 0;
+                Variables.Id = 0;
             }
             reader.Close();
             DBClose(); // закрываем базу данных
@@ -175,7 +184,7 @@ namespace Konvert
                         ///
                         ///При нахождении совпадений Получателя выводит данные в переменные
                         ///
-                        Variables.ID = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
+                        Variables.Id = Convert.ToInt32(reader[0], CultureInfo.CurrentCulture);
                         Variables.Firm = reader[1].ToString();
                         Variables.Index = Convert.ToInt32(reader[2], CultureInfo.CurrentCulture);
                         Variables.Region = reader[3].ToString();
@@ -196,7 +205,6 @@ namespace Konvert
             DBClose();
 
         }
-        
         public static void DBAddArray()
         {
             using SQLiteCommand command = sqlConnection.CreateCommand();
@@ -216,13 +224,13 @@ namespace Konvert
 
         public static void CreateBD()
         {
-           DBOpen();
-
+            SQLiteConnection.CreateFile(path);
+            sqlConnection.Open();
             SQLiteCommand command = new();
             command.Connection = sqlConnection;
-            command.CommandText = "CREATE TABLE Recipient(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Firm TEXT NOT NULL, Indexs INT NOT NULL, Region TEXT, Area TEXT, City TEXT, Street TEXT, Home TEXT, Frame TEXT, Structure TEXT, Flat TEXT)";
+            command.CommandText = "CREATE TABLE IF NOT EXISTS Recipient(ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Firm TEXT NOT NULL, Indexs INT NOT NULL," +
+                " Region TEXT, Area TEXT, City TEXT, Street TEXT, Home TEXT, Frame TEXT, Structure TEXT, Flat TEXT)";
             command.ExecuteNonQuery();
-            Console.WriteLine("Таблица Users создана");
         }
 
 
