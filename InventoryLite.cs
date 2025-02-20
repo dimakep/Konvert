@@ -149,7 +149,7 @@ namespace Konvert
         {
             ///
             /// Убираем пробелы в начале и конце RecipientTextBox
-            using SQLiteDataAdapter dataAdapter = new("SELECT Firm FROM [Recipient] WHERE Firm = N'" + Variables.Firm.Trim() + "'", sqlConnection);
+            using SQLiteDataAdapter dataAdapter = new("SELECT Firm FROM [Recipient] WHERE Firm = '" + Variables.Firm.Trim() + "'", sqlConnection);
             DataTable table = new();
             dataAdapter.Fill(table);
             ///

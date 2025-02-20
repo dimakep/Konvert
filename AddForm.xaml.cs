@@ -106,10 +106,19 @@ namespace Konvert
         ///
         private void IndexBox_GotFocus(object sender, RoutedEventArgs e)
         {
+
             Variables.Firm = FirmBox.Text;
             InventoryLite.CoincidenceFind();
             BoxFromDB();
         }
+
+        private async void RegionBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Variables.Index = Convert.ToInt32(IndexBox.Text, CultureInfo.CurrentCulture);
+            await PostalData.Main();
+            BoxFromDB();
+        }
+
 
         public void ClearBox() ///Очистка TextBox
         {
@@ -126,7 +135,7 @@ namespace Konvert
             FlatBox.Text = Variables.Flat = "";
             CounterDB();
         }
-        private void BoxFromDB() /// Передача данных из TextBoxs в переменные
+        private void BoxFromDB() ///  Передача данных из переменных в TextBox
         {
             FirmBox.Text = Variables.Firm;
             IndexBox.Text = Convert.ToString(Variables.Index, CultureInfo.CurrentCulture);
@@ -139,7 +148,7 @@ namespace Konvert
             StructureBox.Text = Variables.Structure;
             FlatBox.Text = Variables.Flat;
         } 
-        private void DBFromBox() /// Передача данных из переменных в TextBox
+        private void DBFromBox() /// Передача данных из TextBoxs в переменные
         {
             Variables.Firm = FirmBox.Text;
             Variables.Index = Convert.ToInt32(IndexBox.Text, CultureInfo.CurrentCulture);
@@ -152,6 +161,7 @@ namespace Konvert
             Variables.Structure = StructureBox.Text;
             Variables.Flat = FlatBox.Text;
         }
+
         /// 
         /// Кнопки работы с БД
         /// 

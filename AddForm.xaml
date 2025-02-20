@@ -84,49 +84,58 @@
                HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Center"/>
         <TextBox x:Name="IndexBox" PreviewTextInput="IndexBox_PreviewTextInput" GotFocus="IndexBox_GotFocus"
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Индекс (Обязательное поле)"
-                 TabIndex="1"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="875" Height="Auto" Grid.ColumnSpan="7" Grid.Row="2" Grid.Column="1">
+                 TabIndex="1"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="875" Height="Auto" 
+                 Grid.ColumnSpan="7" Grid.Row="2" Grid.Column="1">
         </TextBox>
-        <Label Content="Область" 
+        <Label Content="Область"
                HorizontalAlignment="Left"  VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="0" Grid.Row="3"/>
-        <TextBox x:Name="RegionBox" 
+        <TextBox x:Name="RegionBox" GotFocus="RegionBox_GotFocus"
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Область"
-                 TabIndex="2"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="875" Height="Auto" Grid.ColumnSpan="7" Grid.Row="3" Grid.Column="1"/>
+                 TabIndex="2"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="875" Height="Auto" 
+                 Grid.ColumnSpan="7" Grid.Row="3" Grid.Column="1"/>
         <Label Content="Район" 
                HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="0" Grid.Row="4"/>
         <TextBox x:Name="AreaBox" 
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Район"
-                 TabIndex="3"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="875" Height="Auto" Grid.ColumnSpan="7" Grid.Row="4" Grid.Column="1"/>
+                 TabIndex="3"  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="875" Height="Auto" 
+                 Grid.ColumnSpan="7" Grid.Row="4" Grid.Column="1"/>
         <Label Content="Город" 
                HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="0" Grid.Row="5"/>
         <TextBox x:Name="CityBox" 
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Город"
-                  TabIndex="4" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="875"  Height="Auto" Grid.ColumnSpan="7" Grid.Row="5" Grid.Column="1"/>
+                  TabIndex="4" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="875"  Height="Auto" 
+                 Grid.ColumnSpan="7" Grid.Row="5" Grid.Column="1"/>
         <Label  Content="Улица" 
                 HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="0" Grid.Row="6"/>
         <TextBox x:Name="StreetBox" 
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Улица (А/Я)"
-                 TabIndex="5"  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="875"  Height="Auto" Grid.ColumnSpan="7" Grid.Row="6" Grid.Column="1"/>
+                 TabIndex="5"  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="875"  Height="Auto" 
+                 Grid.ColumnSpan="7" Grid.Row="6" Grid.Column="1"/>
         <Label Content="Дом" 
                HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="0" Grid.Row="7"/>
         <TextBox x:Name="HomeBox" 
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Дом"
-                 TabIndex="6" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="1"/>
+                 TabIndex="6" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" 
+                 Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="1"/>
         <Label Content="Корпус" 
                HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="2"  Grid.Row="7"/>
         <TextBox x:Name="FrameBox" 
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Корпус"
-                 TabIndex="7" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" Grid.Column="3" Grid.Row="7"/>
+                 TabIndex="7" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" 
+                 Grid.Column="3" Grid.Row="7"/>
         <Label Content="Строение" 
                HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="4" Grid.Row="7"/>
         <TextBox x:Name="StructureBox" 
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Строение"
-                 TabIndex="8"  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" Grid.Column="5" Grid.Row="7"/>
+                 TabIndex="8"  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" 
+                 Grid.Column="5" Grid.Row="7"/>
         <Label Content="Квартира" 
                HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="Auto" Grid.Column="6" Grid.Row="7"/>
 
         <TextBox x:Name="FlatBox" 
                  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Квартира"
-                 TabIndex="9"  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" Grid.Column="7" Grid.Row="7" Panel.ZIndex="-1"/>
+                 TabIndex="9"  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90"  Height="Auto" 
+                 Grid.Column="7" Grid.Row="7" Panel.ZIndex="-1"/>
         
         <Button  x:Name="BtnFFBack" Click="BtnFFBack_Click"
             Grid.Column="2" Grid.Row="0" Height="32" Width="32" HorizontalAlignment="Right" Margin="0,0,4,0" Cursor="Hand"
@@ -162,7 +171,8 @@
         </Button>
         <TextBox x:Name="TextBoxGrid" 
                  Style="{StaticResource MaterialDesignOutlinedTextBox}" Padding="5,5,5,5"
-                 Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" Margin="8,4,8,4" IsReadOnly="True" TextAlignment="Center"/>
+                 Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" 
+                 Margin="8,4,8,4" IsReadOnly="True" TextAlignment="Center"/>
         
     </Grid>
 </Window>
