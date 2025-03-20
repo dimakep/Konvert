@@ -65,7 +65,7 @@ namespace Konvert
 
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Token 5e7c1abc30aa8426254f9572209bd6301dcfe17b");
+                client.DefaultRequestHeaders.Add("Authorization", "Token DaData.ru");
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
 
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
